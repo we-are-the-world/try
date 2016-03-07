@@ -24,10 +24,10 @@ body {
 }
 
 .section5 {
-	background-color: #1795B7;
+    background-color: #1795B7;
 }
 
-.blur {	
+.blur {    
     filter: url(../src/blur.svg#blur); /* FireFox, Chrome, Opera */
     
     -webkit-filter: blur(10px); /* Chrome, Opera */
@@ -39,30 +39,30 @@ body {
 }
 
 .from_top {
-	position: relative;
-	top: -120%;
+    position: relative;
+    top: -120%;
 }
 
 .from_right {
-	position: relative;
-	right: -120%;
+    position: relative;
+    right: -120%;
 }
 
 .from_bottom {
-	position: relative;
-	bottom: -120%;
+    position: relative;
+    bottom: -120%;
 }
 
 .from_left {
-	position: relative;
-	left: -120%;
+    position: relative;
+    left: -120%;
 }
 
 .hide {
-	display: none;
+    display: none;
 }
 
 .title {
-	font-size: 48px;
-	font-weight: bold;
+    font-size: 48px;
+    font-weight: bold;
 }
