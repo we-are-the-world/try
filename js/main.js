@@ -13,7 +13,7 @@
                 if(index == 2) {
                     $('.section2 .from_top')
                         .addClass('hide')
-                        .animate({left: '-120%'}, 1000);
+                        .animate({top: '-120%'}, 1000);
                 }
             }
         });
