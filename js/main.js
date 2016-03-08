@@ -1,5 +1,9 @@
 (function () {
     $(document).ready(function () {
-        $("#fullpage").fullpage();
+        $("#fullpage").fullpage({
+            navigation: true,
+            loopBottom: true,
+            verticalCentered: false
+        });
     });
 })();
