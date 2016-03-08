@@ -1,10 +1,12 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html{
+
+html {
     font-size: 10px;
 }
+
 body {
     color: #fff;
     font-size: 10px;
@@ -15,7 +17,7 @@ body {
     text-align: center;
 }
 
-.section1 {
+/* .section1 {
     background-color: #DE3F3F;
 }
 
@@ -33,4 +35,5 @@ body {
 .section5 {
     background-color: #8F8484;
 }
+ */
 
