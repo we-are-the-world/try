@@ -20,7 +20,7 @@ body {
 }
 
 .section2 {
-    background-color: #1795B7;
+    background-color: #403D3D;
 }
 
 .section3 {
@@ -31,3 +31,46 @@ body {
     background-color: #21E121;
 }
 
+.section5 {
+    background-color: #1795B7;
+}
+
+.blur {    
+    filter: url(../src/blur.svg#blur); /* FireFox, Chrome, Opera */
+    
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+
+.from_top {
+    position: relative;
+    top: -120%;
+}
+
+.from_right {
+    position: relative;
+    right: -120%;
+}
+
+.from_bottom {
+    position: relative;
+    bottom: -120%;
+}
+
+.from_left {
+    position: relative;
+    left: -120%;
+}
+
+.hide {
+    display: none;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+}
