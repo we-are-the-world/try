@@ -3,4 +3,3 @@
         $("#fullpage").fullpage();
     });
 })();
-
