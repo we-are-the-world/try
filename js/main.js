@@ -16,6 +16,7 @@
             "afterLoad": function (anchorLink, index) {
                 console.log("afterLoad:anchorLink" + anchorLink + ",index:" + index);
             }
+
         });
     });
     $.fn.fullpage.moveTo(4);
