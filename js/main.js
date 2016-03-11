@@ -13,7 +13,7 @@
             "continuousVertical": true, //连续滚动
             afterLoad: function(archorLink, index) {
                 if(index == 3) {
-                    if(!$(".section3 #t-show-board").text()) {
+                    if(!$('.section3 #t_show_board').children().length) {
                         var str  = "Q: 姓名? \n";
                             str += "A: 韩特\n";
                             str += "Q: 学前端多久啦？\n";
@@ -29,34 +29,35 @@
                             lnStr: "",
                             selectorId: 't_show_board'
                         }).print();
-                        $('.t_cmd').click(function(event) {
-                            $('.t_cmd').fadeOut(1000);
-                            $('.section3 .t_hide').delay(1000).slideDown(1000);
-                        });
-                        $('.t_info span.t_btn').click(function(event) {
-                            $('.section3 .t_hide').hide(1000);
-                            $('.t_cmd').delay(1000).fadeIn(1000);
-                        });
-                        $('.t_info').mouseenter(function(event) {
-                            $(this).find('.t_info_deco').not(':animated').animate({
-                                display: "inline-block",
-                                width: "100%"
-                            }, 1000);
-                        });
-                        $('.t_info').mouseleave(function(event) {
-                            $(this).find('.t_info_deco').animate({
-                                width: 0,
-                                display: "inline-block"
-                            }, 1000);
-                        });
                     }
+                    $('.t_cmd').click(function(event) {
+                        $('.t_cmd').fadeOut(1000);
+                        $('.section3 .t_hide').delay(1000).slideDown(1000);
+                    });
+                    $('.t_info span.t_btn').click(function(event) {
+                        $('.section3 .t_hide').hide(800);
+                        $('.t_cmd').delay(1000).fadeIn(1000);
+                    });
+                    $('.t_info').mouseenter(function(event) {
+                        $(this).find('.t_info_deco').not(':animated').animate({
+                            display: "inline-block",
+                            width: "100%"
+                        }, 800);
+                    });
+                    $('.t_info').mouseleave(function(event) {
+                        $(this).find('.t_info_deco').animate({
+                            width: 0,
+                            display: "inline-block"
+                        }, 600);
+                    });
                 }
             },
             onLeave: function(index, direction) {
-                
+
             }
         });
     });
+    
     $.fn.fullpage.moveTo(4);
 
     var guowen = function () {
@@ -64,5 +65,3 @@
     };
     
 })();
-
-
