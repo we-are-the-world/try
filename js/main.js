@@ -1,8 +1,7 @@
 (function () {
     $(document).ready(function () {
         $("#fullpage").fullpage({
-            "anchors": ["section1", "section2", "section3", "section4", "section5"], //定义锚链接
-            sectionsColor: ["#DE3F3F", "#1795B7", "#4EB7E2", "#20BF70", " #8F8484"],
+            sectionsColor: ["#DE3F3F", "#1795B7", "#4EB7E2", "#21E121", " #8F8484"],
             "verticalCentered": false, //垂直居中
             // "scrollingSpeed":1000,//页面切换速度
             "anchors": ["section1", "section2", "section3", "section4", "section5"], //定义锚链接
@@ -14,7 +13,7 @@
             "continuousVertical": true, //连续滚动
             afterLoad: function(archorLink, index) {
                 if(index == 3) {
-                    if(!$('.section3 #t_show_board').children().length) {
+                    if(!$('.section3 #show_board').children().length) {
                         var str  = "Q: 姓名? \n";
                             str += "A: 韩特\n";
                             str += "Q: 学前端多久啦？\n";
@@ -28,39 +27,36 @@
                         Printer.init(str, {
                             speed: 100,
                             lnStr: "",
-                            selectorId: 't_show_board'
+                            selectorId: 'show_board'
                         }).print();
                     }
-                    $('.t_cmd').click(function(event) {
-                        $('.t_cmd').fadeOut(1000);
-                        $('.section3 .t_hide').delay(1000).slideDown(1000);
+                    $('.cmd').click(function(event) {
+                        $('.cmd').fadeOut(1000);
+                        $('.section3 .hide').delay(1000).slideDown(1000);
                     });
-                    $('.t_info span.t_btn').click(function(event) {
-                        $('.section3 .t_hide').hide(800);
-                        $('.t_cmd').delay(1000).fadeIn(1000);
+                    $('.info span.btn').click(function(event) {
+                        $('.section3 .hide').hide(800);
+                        $('.cmd').delay(1000).fadeIn(1000);
                     });
-                    $('.t_info').mouseenter(function(event) {
-                        $(this).find('.t_info_deco').not(':animated').animate({
+                    $('.info').mouseenter(function(event) {
+                        $(this).find('.info_deco').not(':animated').animate({
                             display: "inline-block",
                             width: "100%"
-                        }, 800);
+                        }, 400);
                     });
-                    $('.t_info').mouseleave(function(event) {
-                        $(this).find('.t_info_deco').animate({
+                    $('.info').mouseleave(function(event) {
+                        $(this).find('.info_deco').animate({
                             width: 0,
                             display: "inline-block"
-                        }, 600);
+                        }, 400);
                     });
                 }
-            },
-            onLeave: function(index, direction) {
-
             }
         });
     });
 
-    var guowen = function () {
+    var guowen = function () { 
 
     };
-
+    
 })();
