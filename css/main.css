@@ -43,13 +43,6 @@ body {
     display: none;
 }
 
-.t_full-page {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #FFFFFF;
-}
-
 .t_cmd {
     position: relative;
     top: 5rem;
