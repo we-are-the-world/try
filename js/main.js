@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(function(){
 		//fullpage设置部分
         $("#fullpage").fullpage(
