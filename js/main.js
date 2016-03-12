@@ -57,7 +57,18 @@
                         }, 400);
                     });
                 }
+                // 第四屏
+                (function(archorLink,index){
+                    if(archorLink=="section4" && index==4){
+                        $(".g_guowen_icon").removeClass("rotateOut").addClass("rotateIn animated");
+                        (function(){
+                            $(".g_info_content").removeClass("bounceOutLeft").addClass("animated bounceInLeft");
+                        })();
+                        $(".g_title").find("p").addClass("animated flip");
+                        $(".g_flip_container").removeClass("rotateOutDownRight").addClass("animated rotateInDownRight");
 
+                    }
+                })(archorLink,index);
                 if (index == 5){
                     $('#chen_intro1').delay(100).animate({
                         top:"10%",
@@ -88,7 +99,15 @@
 					$(".part1").animate({left:"-60rem"},500);
 					$(".part2").animate({right:"-60rem"},500);
 				}
-
+                // 第四屏
+                (function(nextIndex){
+                    if(nextIndex==3||nextIndex==5){
+                        $(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
+                        $(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
+                        $(".g_title").find("p").removeClass(" flip");
+                        $(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
+                    }
+                })(nextIndex);
                 if (index == 5){
                     $('#chen_intro1').animate({
                         top:"-10%",
@@ -152,11 +171,7 @@
 
 		var timer = setInterval(changeColor,100);
 
-
     });
 
-    var guowen = function () {
-
-    };
 
 })();
