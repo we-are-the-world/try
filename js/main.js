@@ -60,12 +60,12 @@
 
                 if (index == 5){
                     $('#chen_intro1').delay(100).animate({
-                        top:"12%",
+                        top:"10%",
                         left:"25%"
                     },1000);
 
                     $('#chen_intro2').delay(400).animate({
-                        top:"12%",
+                        top:"10%",
                         right:"25%"
                     },1000);
 
@@ -91,26 +91,26 @@
 
                 if (index == 5){
                     $('#chen_intro1').animate({
-                        top:"-12%",
+                        top:"-10%",
                         left:"-25%"
-                    },80);
+                    },100);
 
                     $('#chen_intro2').animate({
-                        top:"-12%",
+                        top:"-10%",
                         right:"-25%"
-                    },80);
+                    },100);
 
                     $('#chen_intro3').animate({
                         left:"-25%",
                         bottom:"-20%"
-                    },80);                 
+                    },100);                 
 
                     $('#chen_intro4').animate({
                         right:"-25%",
                         bottom:"-20%"
-                    },80);
+                    },100);
 
-                    $('#chen_intro5').fadeOut(80);                                        
+                    $('#chen_intro5').fadeOut(100);                                        
                 }                
 			}
             
