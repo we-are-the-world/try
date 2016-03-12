@@ -50,10 +50,10 @@
     -moz-animation:     chenAnimate1 10s  ;   
     -o-animation:       chenAnimate1 10s  ;
 
-    animation-animation-fill-mode:      forwards;
+    animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
-    -moz-animation-animation-fill-mode: forwards;
-    -o-animation-animation-fill-mode:   forwards;        
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode:   forwards;        
 }
 
 #chen_intro2 {
@@ -69,10 +69,10 @@
     -moz-animation:     chenAnimate2 10s  ;   3
     -o-animation:       chenAnimate2 10s  ;
 
-    animation-animation-fill-mode:      forwards;
+    animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
-    -moz-animation-animation-fill-mode: forwards;
-    -o-animation-animation-fill-mode:   forwards;  
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode:   forwards;  
     
 }
 
@@ -90,10 +90,10 @@
     -moz-animation:     chenAnimate3 10s  ;   
     -o-animation:       chenAnimate3 10s  ;
 
-    animation-animation-fill-mode:      forwards;
+    animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
-    -moz-animation-animation-fill-mode: forwards;
-    -o-animation-animation-fill-mode:   forwards;  
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode:   forwards;  
     
 }
 
@@ -111,10 +111,10 @@
     -moz-animation:     chenAnimate4 10s  ;   
     -o-animation:       chenAnimate4 10s  ;
 
-    animation-animation-fill-mode:      forwards;
+    animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
-    -moz-animation-animation-fill-mode: forwards;
-    -o-animation-animation-fill-mode:   forwards;  
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode:   forwards;  
     
 }
 
@@ -140,10 +140,10 @@ p.chen_anima5,h1.chen_anima5{
     -moz-animation:     chenAnimateEnd 10s  ;   
     -o-animation:       chenAnimateEnd 10s  ;
 
-    animation-animation-fill-mode:      forwards;
+    animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
-    -moz-animation-animation-fill-mode: forwards;
-    -o-animation-animation-fill-mode:   forwards;  
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode:   forwards;  
 }
 
 
