@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>d</name>
+=======
+	<name>try</name>
+>>>>>>> fbfb46828bb46173a24937057cca1bb566eeddf8
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>com.aptana.editor.php.aptanaPhpBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+=======
+>>>>>>> fbfb46828bb46173a24937057cca1bb566eeddf8
 			<name>com.aptana.ide.core.unifiedBuilder</name>
 			<arguments>
 			</arguments>
@@ -18,6 +25,9 @@
 	</buildSpec>
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
+<<<<<<< HEAD
 		<nature>com.aptana.editor.php.phpNature</nature>
+=======
+>>>>>>> fbfb46828bb46173a24937057cca1bb566eeddf8
 	</natures>
 </projectDescription>
