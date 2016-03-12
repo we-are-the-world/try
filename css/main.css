@@ -74,7 +74,7 @@ body {
 .part1 h3{font-weight:600;}
 .part1,.part2{color:#121056; font-size:1.2em;}  /*BUG,要求都是二位数 */
 
-
+/* 第三页样式 */
 
 .section3 {
     font-family: Georgia, "Hiragino Sans GB", "Microsoft YaHei",
@@ -82,8 +82,6 @@ body {
     background-color: #4EB7E2;
     text-align: left;
 }
-
-
 
 .hide {
     display: none;
@@ -108,7 +106,6 @@ body {
     line-height: 1rem;
     font-size: 14px;
     background-color: #EEEEEE;
-    /*font-family: Consolas, serif;*/
 }
 .title_bar span:before {
     content: "\25cf";
@@ -137,16 +134,13 @@ body {
     background-color: #333333;
     color: #EEEEEE;
     padding: 10px;
-    /*font-family: Consolas, serif;*/
 }
 
 .name {
     border-bottom: 5px solid #FFFFFF;
     margin: 0 auto;
     padding-top: 5rem;
-    /*height: 2.25rem;*/
     width: 18rem;
-    /*line-height: 2.25rem;*/
     font-size: 36px;
 }
 
@@ -208,87 +202,57 @@ body {
 
 
 
-/***********陈伟钰的样式****************/
-.section5 {
-    background-color: #C2E5FF !important;
-    background:url(../img/bg5.png) 50% no-repeat;
-    color:#004b85;
-    font-family: "Microsoft YaHei" ,Georgia , sans-serif;
-    text-align: left;
 
 
+/* 适配小尺寸屏幕 */
+
+@media (max-width: 768px) {
+    .cmd {
+        top: 5rem;
+        width: 20rem;
+        height: 16rem;
+    }
+    .title_bar {
+        width: 20rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+    #show_board {
+        width: 20rem;
+        height: 20rem;
+    }
+    .name {
+        width: 14rem;
+    }
+    .info {
+        margin-top: 0.3rem;
+        height: 1.8rem;
+        width: 14rem;
+        line-height: 1.8rem;
+    }
 }
 
-
-.section5>div {
-    width:11.0rem;
-    height: 11.0rem;
-    padding: 0.5rem;
-    line-height: 1.5rem;
-    border: 1px solid #B6DDF9;
-    border-radius: 0.5rem;
-    box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
-    overflow: hidden;
-
-
-}
-
-
-
-.section5 h1 {
-    text-align: center;
-    padding-bottom: 0.5rem;
-    font-size: 2.0rem;
-}
-.section5>div p{
-    font-size: 0.8rem;
-
-}
-
-#chen_intro1 {
-
-    position: absolute;
-    left:-25%;
-    top:-12%;
-
-
-}
-
-#chen_intro2 {
-    position: absolute;
-    right:-25%;
-    top:-12%;
-
-}
-
-#chen_intro3 {
-    position: absolute;
-    left:-25%;
-    bottom:-20%;
-}
-
-#chen_intro4 {
-    position: absolute;
-    right:-25%;
-    bottom:-20%;
-}
-
-#chen_intro5 {
-
-    position: absolute;
-    top:40%;
-    left:50%;
-    margin: -5.5rem 0 0 -5.5rem;
-    display: none;
-}
-
-
-/**************************************/
-
-@media screen and(max-width: 980px) {
-
-}
-
-@media screen and(max-width: 640px) {
-
+@media (max-width: 384px) {
+    .cmd {
+        top: 3rem;
+        width: 14rem;
+        height: 20rem;
+    }
+    .title_bar {
+        width: 14rem;
+    }
+    #show_board {
+        width: 14rem;
+        height: 19rem;
+    }
+    .name {
+        padding-top: 2rem;
+        width: 14rem;
+    }
+    .info {
+        margin-top: 0.3rem;
+        height: 1.8rem;
+        width: 14rem;
+        line-height: 1.8rem;
+    }
 }

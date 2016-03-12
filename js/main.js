@@ -57,29 +57,26 @@
                         }, 400);
                     });
                 }
+                // 第四屏
+                (function(archorLink,index){
+                    if(archorLink=="section4" && index==4){
+                        $(".g_guowen_icon").removeClass("rotateOut").addClass("rotateIn animated");
+                        (function(){
+                            $(".g_info_content").removeClass("bounceOutLeft").addClass("animated bounceInLeft");
+                        })();
+                        $(".g_title").find("p").addClass("animated flip");
+                        $(".g_flip_container").removeClass("rotateOutDownRight").addClass("animated rotateInDownRight");
+
+                    }
+                })(archorLink,index);
 
                 if (index == 5){
-                    $('#chen_intro1').delay(100).animate({
-                        top:"10%",
-                        left:"25%"
-                    },1000);
+                    $('#chen_intro1').addClass("chen_anima1");
+                    $('#chen_intro2').addClass("chen_anima2");
+                    $('#chen_intro3').addClass("chen_anima3");
+                    $('#chen_intro4').addClass("chen_anima4");
+                    $('.section5 p,.section5 h1').addClass("chen_anima5");
 
-                    $('#chen_intro2').delay(400).animate({
-                        top:"10%",
-                        right:"25%"
-                    },1000);
-
-                    $('#chen_intro3').delay(700).animate({
-                        left:"25%",
-                        bottom:"20%"
-                    },1000);
-
-                    $('#chen_intro4').delay(1000).animate({
-                        right:"25%",
-                        bottom:"20%"
-                    },1000);
-
-                    $('#chen_intro5').delay(2000).fadeIn(1500);
                 }
 
             },
@@ -88,30 +85,24 @@
 					$(".part1").animate({left:"-60rem"},500);
 					$(".part2").animate({right:"-60rem"},500);
 				}
-
+                // 第四屏
+                (function(nextIndex){
+                    if(nextIndex==3||nextIndex==5){
+                        $(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
+                        $(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
+                        $(".g_title").find("p").removeClass(" flip");
+                        $(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
+                    }
+                })(nextIndex);
+                
                 if (index == 5){
-                    $('#chen_intro1').animate({
-                        top:"-10%",
-                        left:"-25%"
-                    },100);
+                    $('#chen_intro1').removeClass("chen_anima1");
+                    $('#chen_intro2').removeClass("chen_anima2");
+                    $('#chen_intro3').removeClass("chen_anima3");
+                    $('#chen_intro4').removeClass("chen_anima4");
+                    $('.section5 p,.section5 h1').removeClass("chen_anima5");
 
-                    $('#chen_intro2').animate({
-                        top:"-10%",
-                        right:"-25%"
-                    },100);
-
-                    $('#chen_intro3').animate({
-                        left:"-25%",
-                        bottom:"-20%"
-                    },100);
-
-                    $('#chen_intro4').animate({
-                        right:"-25%",
-                        bottom:"-20%"
-                    },100);
-
-                    $('#chen_intro5').fadeOut(100);
-                }
+                } 
 			}
 
         });
@@ -152,11 +143,7 @@
 
 		var timer = setInterval(changeColor,100);
 
-
     });
 
-    var guowen = function () {
-
-    };
 
 })();
