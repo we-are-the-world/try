@@ -224,13 +224,13 @@ p.chen_anima5,h1.chen_anima5{
     100% {    left:18rem; top: -8.0rem; }
 }
 
-@-webkit-keyframes chenAnimate2{ 
+@-moz-keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
     35% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
 }
 
-@-webkit-keyframes chenAnimate2{ 
+@-o-keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
     35% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
