@@ -78,7 +78,7 @@ body {
 .part1 h3{font-weight:600;}
 .part1,.part2{color:#121056; font-size:1.2em;}  /*BUG,要求都是二位数 */
 
-
+/* 第三页样式 */
 
 .section3 {
     font-family: Georgia, "Hiragino Sans GB", "Microsoft YaHei",
@@ -86,8 +86,6 @@ body {
     background-color: #4EB7E2;
     text-align: left;
 }
-
-
 
 .hide {
     display: none;
@@ -112,7 +110,6 @@ body {
     line-height: 1rem;
     font-size: 14px;
     background-color: #EEEEEE;
-    /*font-family: Consolas, serif;*/
 }
 .title_bar span:before {
     content: "\25cf";
@@ -141,16 +138,13 @@ body {
     background-color: #333333;
     color: #EEEEEE;
     padding: 10px;
-    /*font-family: Consolas, serif;*/
 }
 
 .name {
     border-bottom: 5px solid #FFFFFF;
     margin: 0 auto;
     padding-top: 5rem;
-    /*height: 2.25rem;*/
     width: 18rem;
-    /*line-height: 2.25rem;*/
     font-size: 36px;
 }
 
@@ -287,12 +281,55 @@ body {
 }
 
 
-/**************************************/
+/* 适配小尺寸屏幕 */
 
-@media screen and(max-width: 980px) {
-
+@media (max-width: 768px) {
+    .cmd {
+        top: 5rem;
+        width: 20rem;
+        height: 16rem;
+    }
+    .title_bar {
+        width: 20rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+    #show_board {
+        width: 20rem;
+        height: 20rem;
+    }
+    .name {
+        width: 14rem;
+    }
+    .info {
+        margin-top: 0.3rem;
+        height: 1.8rem;
+        width: 14rem;
+        line-height: 1.8rem;
+    }
 }
 
-@media screen and(max-width: 640px) {
-
+@media (max-width: 384px) {
+    .cmd {
+        top: 3rem;
+        width: 14rem;
+        height: 20rem;
+    }
+    .title_bar {
+        width: 14rem;
+    }
+    #show_board {
+        width: 14rem;
+        height: 19rem;
+    }
+    .name {
+        padding-top: 2rem;
+        width: 14rem;
+    }
+    .info {
+        margin-top: 0.3rem;
+        height: 1.8rem;
+        width: 14rem;
+        line-height: 1.8rem;
+    }
 }
