@@ -167,8 +167,7 @@
 
 
 		var timer = setInterval(changeColor, 100);
-
-	});
+	}); 
 
 
 })();
