@@ -1,10 +1,10 @@
-<<<<<<< Updated upstream
 *{
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    
 }
 
 html {
@@ -16,67 +16,83 @@ body {
     font-size: 0.7rem;
     color: #FFFFFF;
 }
-=======
-.section2{display:table;position:relative;}
+
+.section {
+    text-align: center;
+}
+
+.section1 {
+    background-color: #DE3F3F;
+}
+
+
+/*Talk Lee section2 */
+
+
+.section2 {
+    display:block;
+    position:relative;
+    background:#000000;
+}
+
+
 .part1,.part2{
-	display: inline-block;
-	width:320px;
-	height:500px;
-	display:table-cell;
-	padding:100px 0;
+	width:16rem;
+	height:33rem;
+	display:inline-block;
+    margin-top:5rem;
 	position:absolute;
 	top:0;
+    
 	}
 	
 .part1{
-	padding-left:263px;
-	padding-right:100px;
-	left:-1200px;
+	margin-left:12rem;   
+	margin-right:5rem;
+	left:-60rem;
 	font-family: "微软雅黑";
 	}
 	
 .part1 img{
 	opacity: 0.95;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 
 }	
 	
 .part2{
-	padding-left:100px;
-	padding-right:263px;
-	right:-1200px;
+
+	margin-left:5rem;
+	margin-right:13rem;
+	right:-60rem;
 	font-family: "微软雅黑";
->>>>>>> Stashed changes
+    
 
 }
 
 .part2 img{
 	opacity:0.95;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 	}
 
-<<<<<<< HEAD
-*{font-weight: 500;color:#121056;font-size:1.8rem}    //BUG,要求都是二位数
-=======
+
+*{font-weight: 500;color:#121056;font-size:0.9rem;}    /*BUG,要求都是二位数 */
+
+
+
+
 .section3 {
     font-family: Georgia, "Hiragino Sans GB", "Microsoft YaHei",
              "WenQuanYi Micro Hei", sans-serif;
     background-color: #4EB7E2;
     text-align: left;
 }
->>>>>>> 66e484ef8cc5a2f97ab4d636de6e74419a93fbca
 
-<<<<<<< HEAD
 .section4 {
     background-color: #21E121;
 }
 .section5 {
     background-color: #8F8484;
 }
-=======
-
-	
->>>>>>> master
 
 .hide {
     display: none;
