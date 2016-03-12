@@ -1,7 +1,7 @@
 (function () {
     $(document).ready(function () {
         $("#fullpage").fullpage({
-            sectionsColor: ["#DE3F3F", "#C0D4FF", "#4EB7E2", "#21E121", " #8F8484"],
+            sectionsColor: ["#DE3F3F", "#C0D4FF", "#4EB7E2", "#009688", " #8F8484"],
             "verticalCentered": false, //垂直居中
             // "scrollingSpeed":1000,//页面切换速度
             "anchors": ["section1", "section2", "section3", "section4", "section5"], //定义锚链接
@@ -11,13 +11,13 @@
             "showActiveTooltip": true, //自动显示提示信息
             "slidesNavigation": true, //横向幻灯片导航
             "continuousVertical": true, //连续滚动
-            
+
             afterLoad: function(archorLink, index) {
                 if(index == "2"){
 					$(".part1").animate({left:"0rem",top:"1rem"},500);
 					$(".part2").animate({right:"0rem",top:"1rem"},500);
-					} 
-                   
+					}
+
                 if(index == 3) {
                     if(!$('.section3 #show_board').children().length) {
                         var str  = "Q: 姓名? \n";
@@ -79,9 +79,9 @@
                         bottom:"20%"
                     },1000);
 
-                    $('#chen_intro5').delay(2000).fadeIn(1500);                                                                                
-                }                
-               
+                    $('#chen_intro5').delay(2000).fadeIn(1500);
+                }
+
             },
 		    onLeave: function(index,nextIndex,direction){
 				if(index == "2"){
@@ -103,36 +103,36 @@
                     $('#chen_intro3').animate({
                         left:"-25%",
                         bottom:"-20%"
-                    },100);                 
+                    },100);
 
                     $('#chen_intro4').animate({
                         right:"-25%",
                         bottom:"-20%"
                     },100);
 
-                    $('#chen_intro5').fadeOut(100);                                        
-                }                
+                    $('#chen_intro5').fadeOut(100);
+                }
 			}
-            
+
         });
-        
+
         //字体渐变部分 MaxWell
-        
+
         var i = 1;
         var speed = 256;
         var getColor;
-        
+
         var colorArr;
         var colorString;
         var colorNum;
-        	
+
         function changeColor(){
         	getColor = $(".part1 *").css("color");
 			colorArr = getColor.split(/[(,)]/);  //获取颜色三元素值
-			colorString = parseInt(colorArr[1]).toString(16) + parseInt(colorArr[2]).toString(16) + parseInt(colorArr[3]).toString(16);//转化为字符串 
+			colorString = parseInt(colorArr[1]).toString(16) + parseInt(colorArr[2]).toString(16) + parseInt(colorArr[3]).toString(16);//转化为字符串
 			colorNum =  parseInt(colorString,16);
 			if( i <= 200){   //有BUG
-				colorNum = colorNum + speed ; 
+				colorNum = colorNum + speed ;
 				i++;
 			}
 			else{
@@ -148,15 +148,15 @@
 		$(".part2 *").css("color", '#' + colorString);
 		//console.log( $(".part1 *").css("color"));
 		}
-			
-			
-		var timer = setInterval(changeColor,100);        
-            
-        
+
+
+		var timer = setInterval(changeColor,100);
+
+
     });
 
-    var guowen = function () { 
+    var guowen = function () {
 
     };
-    
+
 })();

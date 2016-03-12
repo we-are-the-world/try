@@ -4,7 +4,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    
+
 }
 
 html {
@@ -43,29 +43,29 @@ body {
     margin-top:5rem;
 	position:absolute;
 	top:0;
-    
+
 	}
-	
+
 .part1{
-	margin-left:12rem;   
+	margin-left:12rem;
 	margin-right:5rem;
 	left:-60rem;
 	font-family: "微软雅黑";
 	}
-	
+
 .part1 img{
 	opacity: 0.95;
 	border-radius: 0.5rem;
 
-}	
-	
+}
+
 .part2{
 
 	margin-left:5rem;
 	margin-right:13rem;
 	right:-60rem;
 	font-family: "微软雅黑";
-    
+
 
 }
 
@@ -75,7 +75,7 @@ body {
 	}
 
 
-.part1 h3{font-weight:600;}    
+.part1 h3{font-weight:600;}
 .part1,.part2{color:#121056; font-size:1.2em;}  /*BUG,要求都是二位数 */
 
 
@@ -87,9 +87,6 @@ body {
     text-align: left;
 }
 
-.section4 {
-    background-color: #21E121;
-}
 
 
 .hide {
@@ -218,8 +215,8 @@ body {
 /***********陈伟钰的样式****************/
 .section5 {
     background-color: #C2E5FF !important;
-    background:url(../img/bg5.png) 50% no-repeat; 
-    color:#004b85;    
+    background:url(../img/bg5.png) 50% no-repeat;
+    color:#004b85;
     font-family: "Microsoft YaHei" ,Georgia , sans-serif;
     text-align: left;
 
@@ -236,7 +233,7 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
     overflow: hidden;
-    
+
 
 }
 
@@ -244,7 +241,7 @@ body {
 
 .section5 h1 {
     text-align: center;
-    padding-bottom: 0.5rem; 
+    padding-bottom: 0.5rem;
     font-size: 2.0rem;
 }
 .section5>div p{
@@ -253,31 +250,31 @@ body {
 }
 
 #chen_intro1 {
-    
+
     position: absolute;
     left:-25%;
-    top:-12%;  
+    top:-12%;
 
-    
+
 }
 
 #chen_intro2 {
     position: absolute;
     right:-25%;
-    top:-12%; 
-    
+    top:-12%;
+
 }
 
 #chen_intro3 {
     position: absolute;
     left:-25%;
-    bottom:-20%;    
+    bottom:-20%;
 }
 
 #chen_intro4 {
     position: absolute;
     right:-25%;
-    bottom:-20%; 
+    bottom:-20%;
 }
 
 #chen_intro5 {
