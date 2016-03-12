@@ -75,8 +75,8 @@ body {
 	}
 
 
-*{font-weight: 500;color:#121056;font-size:0.9rem;}    /*BUG,要求都是二位数 */
-
+.part1 h3{font-weight:600;}    
+.part1,.part2{color:#121056; font-size:1.2em;}  /*BUG,要求都是二位数 */
 
 
 

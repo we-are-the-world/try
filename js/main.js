@@ -14,12 +14,10 @@
             
             afterLoad: function(archorLink, index) {
                 if(index == "2"){
-						$(".part1").animate({left:"0rem",top:"1rem"},500);
-						$(".part2").animate({right:"0rem",top:"1rem"},500);
-						
+					$(".part1").animate({left:"0rem",top:"1rem"},500);
+					$(".part2").animate({right:"0rem",top:"1rem"},500);
 					} 
                    
-                    
                 if(index == 3) {
                     if(!$('.section3 #show_board').children().length) {
                         var str  = "Q: 姓名? \n";
@@ -62,12 +60,11 @@
                
             },
 		    onLeave: function(index,nextIndex,direction){
-					if(index == "2"){
-						$(".part1").animate({left:"-60rem"},500);
-						$(".part2").animate({right:"-60rem"},500);
-					}
+				if(index == "2"){
+					$(".part1").animate({left:"-60rem"},500);
+					$(".part2").animate({right:"-60rem"},500);
 				}
-               
+			}
             
         });
         
@@ -80,35 +77,32 @@
         var colorArr;
         var colorString;
         var colorNum;
-        	function changeColor(){
         	
-			getColor = $(".part1 *").css("color");
+        function changeColor(){
+        	getColor = $(".part1 *").css("color");
 			colorArr = getColor.split(/[(,)]/);  //获取颜色三元素值
 			colorString = parseInt(colorArr[1]).toString(16) + parseInt(colorArr[2]).toString(16) + parseInt(colorArr[3]).toString(16);//转化为字符串 
 			colorNum =  parseInt(colorString,16);
-			if( i <= 200)   //BUG
-			{
+			if( i <= 200){   //有BUG
 				colorNum = colorNum + speed ; 
 				i++;
 			}
-			else 
-			{
+			else{
 				colorNum = colorNum - speed;
-				if(parseInt(colorArr[2]) <= 20)    //BUG
-				{
+				if(parseInt(colorArr[2]) <= 20){  //有BUG
 					i = 0;
 				}
 			}
-			//console.log(colorNum);
-			colorString = colorNum.toString(16);  //转化为字符串,转化成功
-			//console.log(colorString);
-			$(".part1 *").css("color", '#' + colorString);
-			$(".part2 *").css("color", '#' + colorString);
-			//console.log( $(".part1 *").css("color"));
-			}
+		//console.log(colorNum);
+		colorString = colorNum.toString(16);  //转化为字符串,转化成功
+		//console.log(colorString);
+		$(".part1 *").css("color", '#' + colorString);
+		$(".part2 *").css("color", '#' + colorString);
+		//console.log( $(".part1 *").css("color"));
+		}
 			
 			
-			var timer = setInterval(changeColor,100);        
+		var timer = setInterval(changeColor,100);        
             
         
     });
