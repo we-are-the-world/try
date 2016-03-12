@@ -90,9 +90,7 @@ body {
 .section4 {
     background-color: #21E121;
 }
-.section5 {
-    background-color: #8F8484;
-}
+
 
 .hide {
     display: none;
@@ -212,6 +210,88 @@ body {
     margin-top: 20%;
     margin-left:20%;
 }
+
+
+
+
+
+/***********陈伟钰的样式****************/
+.section5 {
+    background-color: #C2E5FF !important;
+    background:url(../img/bg2.png) 50% no-repeat; 
+    color:#004b85;    
+    font-family: "Microsoft YaHei" ,Georgia , sans-serif;
+    text-align: left;
+
+
+}
+
+
+.section5>div {
+    width:11.0rem;
+    height: 11.0rem;
+    padding: 0.5rem;
+    line-height: 1.5rem;
+    border: 1px solid #B6DDF9;
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
+    overflow: hidden;
+    
+
+}
+
+
+
+.section5 h1 {
+    text-align: center;
+    padding-bottom: 0.5rem; 
+    font-size: 2.0rem;
+}
+.section5>div p{
+    font-size: 0.8rem;
+
+}
+
+#chen_intro1 {
+    
+    position: absolute;
+    left:-25%;
+    top:-12%;  
+
+    
+}
+
+#chen_intro2 {
+    position: absolute;
+    right:-25%;
+    top:-12%; 
+    
+}
+
+#chen_intro3 {
+    position: absolute;
+    left:-25%;
+    bottom:-20%;    
+}
+
+#chen_intro4 {
+    position: absolute;
+    right:-25%;
+    bottom:-20%; 
+}
+
+#chen_intro5 {
+
+    position: absolute;
+    top:40%;
+    left:50%;
+    margin: -4.5rem 0 0 -4.5rem;
+    display: none;
+}
+
+
+/**************************************/
+
 @media screen and(max-width: 980px) {
 
 }

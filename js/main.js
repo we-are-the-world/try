@@ -57,6 +57,30 @@
                         }, 400);
                     });
                 }
+
+                if (index == 5){
+                    $('#chen_intro1').delay(100).animate({
+                        top:"12%",
+                        left:"25%"
+                    },1000);
+
+                    $('#chen_intro2').delay(400).animate({
+                        top:"12%",
+                        right:"25%"
+                    },1000);
+
+                    $('#chen_intro3').delay(700).animate({
+                        left:"25%",
+                        bottom:"20%"
+                    },1000);
+
+                    $('#chen_intro4').delay(1000).animate({
+                        right:"25%",
+                        bottom:"20%"
+                    },1000);
+
+                    $('#chen_intro5').delay(2000).fadeIn(1500);                                                                                
+                }                
                
             },
 		    onLeave: function(index,nextIndex,direction){
@@ -64,6 +88,30 @@
 					$(".part1").animate({left:"-60rem"},500);
 					$(".part2").animate({right:"-60rem"},500);
 				}
+
+                if (index == 5){
+                    $('#chen_intro1').animate({
+                        top:"-12%",
+                        left:"-25%"
+                    },80);
+
+                    $('#chen_intro2').animate({
+                        top:"-12%",
+                        right:"-25%"
+                    },80);
+
+                    $('#chen_intro3').animate({
+                        left:"-25%",
+                        bottom:"-20%"
+                    },80);                 
+
+                    $('#chen_intro4').animate({
+                        right:"-25%",
+                        bottom:"-20%"
+                    },80);
+
+                    $('#chen_intro5').fadeOut(80);                                        
+                }                
 			}
             
         });
