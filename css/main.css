@@ -323,6 +323,7 @@ body {
         height: 19rem;
     }
     .name {
+        padding-top: 2rem;
         width: 14rem;
     }
     .info {
