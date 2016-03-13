@@ -19,10 +19,10 @@
 			afterLoad: function(archorLink, index) {
 				if (index == 1) {
 					
-					one.addClass("bounceInDown");
-					two.addClass('bounceInRight');
-					three.addClass('bounceInLeft');
-					four.addClass('bounceInUp');
+					one.removeClass("bounceOutDown").addClass("bounceInDown animated");
+					two.removeClass("bounceOutRight").addClass('bounceInRight animated');
+					three.removeClass("bounceOutLeft").addClass('bounceInLeft animated');
+					four.removeClass("bounceOutUp").addClass('bounceInUp animated');
 
 				} else if (index == "2") {
 					$(".part1").animate({
@@ -99,10 +99,10 @@
 			},
 			onLeave: function(index, nextIndex, direction) {
 				if (index == "1") {
-					one.removeClass("bounceInDown");
-					two.removeClass('bounceInRight');
-					three.removeClass('bounceInLeft');
-					four.removeClass('bounceInUp');
+					one.removeClass("bounceInDown").addClass("bounceOutDown");
+					two.removeClass('bounceInRight').addClass("bounceOutRight");
+					three.removeClass('bounceInLeft').addClass("bounceOutLeft");
+					four.removeClass('bounceInUp').addClass("bounceOutUp");
 				} else if (index == "2") {
 					$(".part1").animate({
 						left: "-60rem"
