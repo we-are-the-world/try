@@ -94,7 +94,7 @@
                         $(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
                     }
                 })(nextIndex);
-                
+
                 if (index == 5){
                     $('#chen_intro1').removeClass("chen_anima1");
                     $('#chen_intro2').removeClass("chen_anima2");
@@ -102,7 +102,7 @@
                     $('#chen_intro4').removeClass("chen_anima4");
                     $('.section5 p,.section5 h1').removeClass("chen_anima5");
 
-                } 
+                }
 			}
 
         });
