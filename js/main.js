@@ -111,24 +111,24 @@
 						right: "-60rem"
 					}, 500);
 				}
-				// 第四屏
-				(function(nextIndex) {
-					if (nextIndex == 3 || nextIndex == 5) {
-						$(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
-						$(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
-						$(".g_title").find("p").removeClass(" flip");
-						$(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
-					}
-				})(nextIndex);
+                // 第四屏
+                (function(nextIndex){
+                    if(nextIndex==3||nextIndex==5){
+                        $(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
+                        $(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
+                        $(".g_title").find("p").removeClass(" flip");
+                        $(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
+                    }
+                })(nextIndex);
 
-				if (index == 5) {
-					$('#chen_intro1').removeClass("chen_anima1");
-					$('#chen_intro2').removeClass("chen_anima2");
-					$('#chen_intro3').removeClass("chen_anima3");
-					$('#chen_intro4').removeClass("chen_anima4");
-					$('.section5 p,.section5 h1').removeClass("chen_anima5");
+                if (index == 5){
+                    $('#chen_intro1').removeClass("chen_anima1");
+                    $('#chen_intro2').removeClass("chen_anima2");
+                    $('#chen_intro3').removeClass("chen_anima3");
+                    $('#chen_intro4').removeClass("chen_anima4");
+                    $('.section5 p,.section5 h1').removeClass("chen_anima5");
 
-				}
+                }
 			}
 
 		});
