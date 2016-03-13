@@ -88,6 +88,7 @@
 				})(archorLink, index);
 
 				if (index == 5) {
+                    $('#chen_intro5 div').css("z-index","1");
 					$('#chen_intro1').addClass("chen_anima1");
 					$('#chen_intro2').addClass("chen_anima2");
 					$('#chen_intro3').addClass("chen_anima3");
@@ -127,6 +128,7 @@
                     $('#chen_intro3').removeClass("chen_anima3");
                     $('#chen_intro4').removeClass("chen_anima4");
                     $('.section5 p,.section5 h1').removeClass("chen_anima5");
+                    $('#chen_intro5 div').css("z-index","-1");
 
                 }
 			}
