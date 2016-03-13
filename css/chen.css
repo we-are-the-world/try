@@ -289,8 +289,154 @@ p.chen_anima5,h1.chen_anima5{
 }
 
 
-
-
-
-
 /**************************************/
+
+
+@media (max-width: 768px) {
+       
+    .section5 div {
+        width:15.0rem;
+        height: 4.4rem;
+        padding: 0.1rem;
+        line-height: 0.7rem;
+        border: 1px solid #B6DDF9;
+        border-radius: 0.5rem;
+        box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
+
+    }
+
+    #chen_intro5 {
+
+        position: relative;
+        
+        left:0;
+        top:13.0rem;
+        margin-left:0;
+        
+    }
+
+
+    .section5 h1 {
+        text-align: center;
+        padding-bottom: 0.1rem; 
+        font-size: 1.0rem;
+        line-height: 1.2rem;
+    }
+    .section5 p{
+        font-size: 0.5rem;
+        text-align: left;
+        line-height: 0.7rem;
+    }
+
+
+
+
+
+
+
+    /************动画块一***************/
+    @keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate1{
+      
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-o-keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem;  top: -10.0rem; }
+    }
+
+    /*************动画块二***************/
+    @keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+
+    /**********动画块三*********************/
+    @keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-o-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    /*************动画块四*****************/
+
+    @keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-o-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+
+
+}
