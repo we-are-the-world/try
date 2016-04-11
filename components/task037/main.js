@@ -34,24 +34,19 @@ function hasClass(element, sClass) {
 }
 
 (function() {
-    (function() {
-        var oBtn = document.getElementById("btn");
-        addEvent(oBtn, "click", function() {
-            var popLayer = document.getElementById("popLayer");
-            poplayer.style.display = "block";
-        });
-    })();
-
-    function popUp(id) {
-        var popLayer = document.getElementById(id);
-        console.log(popLayer);
-        addEvent(popLayer, "click", function(ev) {
-            if (hasClass(ev.target, "poplayer-mask") || hasClass(ev.target, "close-mask")) {
-                console.log(poplayer);
-                popLayer.style.display = "none";
-            }
-        });
-
-    }
-    popUp("poplayer");
+    var oBtn = document.getElementById("btn");
+    addEvent(oBtn, "click", function() {
+        var popLayer = document.getElementById("popLayer");
+        poplayer.style.display = "block";
+    });
 })();
+
+function popUp(id) {
+    var popLayer = document.getElementById(id);
+    addEvent(popLayer, "click", function(ev) {
+        if (hasClass(ev.target, "poplayer-mask") || hasClass(ev.target, "close-mask")) {
+            popLayer.style.display = "none";
+        }
+    });
+}
+popUp("poplayer");
