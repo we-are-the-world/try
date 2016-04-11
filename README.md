@@ -1,33 +1,8 @@
-# try
-百度前端技术学院We Are The World小组
+## try
 
-## 提交记录
+百度前端技术学院 **We Are The World** 小组
 
-### 3.11 00:00 韩特
-* 第三页主体完成
+团队主页地址：[http://we-are-the-world.github.io/try/index/](http://we-are-the-world.github.io/try/index/)
 
 
-### 3.12 12：00 李言
 
-### 3.12，15:40 陈伟钰
-* 第五页初步完成
-
-### 3.12 20:01 guowenfh
-
-- 基本样式完成
-
-### 3.12 22:00 韩特
-* 第三页移动端适配
-
-### 3.12 22:54 guowenfh
-
-
-- 动画基本完成
-
-### 3.13 11:26 guowenfh
-
-- 添加响应式
-
-### 3.13 12:12 海枯
-
-- 第一次提交
