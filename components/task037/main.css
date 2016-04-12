@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    border: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 #poplayer{
-    display: none;
+    /* display: none; */
 }
 .poplayer-mask {
     position: fixed;
