@@ -18,9 +18,13 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(23,39,52,0.5);
 }
-
+.poplayer-move{
+    height:30px;
+    background-color: #ddd;
+    cursor:move;
+}
 .poplayer-main {
     position: fixed;
     min-height: 200px;

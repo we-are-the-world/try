@@ -1,13 +1,23 @@
-function popUp(id) {
-    var popLayer = document.getElementById(id);
+
+function popUp(popLayer,close,dragSelector,moveSelector) {
+    var dragWrap = poplayer.querySelector(".poplayer-main");
     addEvent(popLayer, "click", function(ev) {
-        if (hasClass(ev.target, "poplayer-mask") || hasClass(ev.target, "close-poplayer")) {
+        if ((typeof close) === "string" && hasClass(ev.target, close)) {
             popLayer.style.display = "none";
+        } else if (Array.isArray(close)) {
+            for (var i = 0, len = close.length; i < len; i++) {
+                if (hasClass(ev.target, close[i])) {
+                    popLayer.style.display = "none";
+                    break;
+                }
+            }
         }
     });
+    setDrag(dragWrap, ".poplayer-move", function() {
+        boundary(dragWrap, 20);
+    });
+    return popLayer;
 }
-
-
 
 window.onload = function() {
     (function() {
@@ -17,9 +27,8 @@ window.onload = function() {
             poplayer.style.display = "block";
         });
     })();
-    popUp("poplayer");
-    var dragWrap = document.getElementsByClassName("poplayer-main")[0];
-    setDrag(dragWrap, function() {
-        boundary(dragWrap, 20);
-    });
+
+    var wer = document.querySelector("#poplayer");
+    popUp(wer, ["poplayer-mask", "close-poplayer","xxx"],".poplayer-main",".poplayer-move");
+
 };

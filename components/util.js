@@ -78,6 +78,7 @@ function getStyle(element, attr) {
  * @param  {Number} away         边界吸附距离
  * @param  {Objec} ev            事件对象
  */
+
 function boundary(element, away, ev) {
     var oEvent = ev || window.event;
     //
@@ -106,25 +107,26 @@ function boundary(element, away, ev) {
 
 /**
  * 鼠标拖拽函数(相对于可视区)
- * @param {HTMLElement} element 需要进行拖拽的DOM对象
- * @param {Function} func    在鼠标移动的时候做一些什么
+ * @param {HTMLElement} element 拖拽移动的DOM对象
+ * @param {String} selector     css选择器带前缀如`#`等，触发鼠标事件的对象（必须在DOM对象中）
+ * @param {Function} func       在鼠标移动的时候做一些什么
  */
-function setDrag(element, func) {
+function setDrag(element,selector,func) {
 
-    addEvent(element, "mousedown", onMousedown);
+    var moveObj = element.querySelector(selector);
+
+    addEvent(moveObj, "mousedown", onMousedown);
 
     /*
         鼠标按下
      */
     function onMousedown(ev) {
         var oEvent = ev || window.event;
-
         //获取鼠标在容器内的位置
-        var disX = oEvent.clientX - this.offsetLeft;
-        var disY = oEvent.clientY - this.offsetTop;
-
+        var disX = oEvent.clientX - element.offsetLeft;
+        var disY = oEvent.clientY - element.offsetTop;
         //缓存this
-        var _this = this;
+        var _this = element;
         var dragFlag = true; //容器是否可以被拖拽的
         addEvent(document, "mouseup", onMouseup);
         addEvent(document, "mousemove", onMousemove);
@@ -152,5 +154,4 @@ function setDrag(element, func) {
             // removeEvent(document, "mouseup", onMouseup);
         }
     }
-
 }
