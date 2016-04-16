@@ -11,36 +11,32 @@
 <body>
     <table id="fh-table" class="fh-table" border="1">
         <caption>分数表</caption>
-        <thead>
-            <tr>
-                <th>排名</th>
-                <th>网站</th>
-                <th>热度</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1.</td>
-                <td>百度前端技术学院</td>
-                <td>13000</td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>百度前端技术学院</td>
-                <td>12000</td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>百度前端技术学院</td>
-                <td>11000</td>
-            </tr>
-            <tr>
-                <td>4.</td>
-                <td>百度前端技术学院</td>
-                <td>10000</td>
-            </tr>
-        </tbody>
     </table>
+        <h3>表格排序组件说明：</h3>
+    <ol>
+        <li>用户需要提供一个数组，例如：
+            <pre>
+            [{
+                "姓名": "小红",
+                "数学": 89,
+                "语文": 99,
+                "英语": 77,
+                "总分": 265
+            }, {
+                "姓名": "阿文",
+                "数学": 99,
+                "语文": 90,
+                "英语": 33,
+                "总分": 222
+            }]
+        </pre>
+        </li>
+        <li>用户需要手动创建一个 &lt;table&gt; 并且设置 <strong>id</strong> 为
+            <mark>fh-table</mark>，如： &lt;table id="fh-table"&gt;&lt;/table&gt;
+         </li>
+        <li>只需要上述的步骤即可完成排序功能，若需要应用组件默认样式，则还需要设置 <strong>className</strong> 为 <mark>fh-table</mark> </li>
+        <li>默认样式中只对最外层设置了边框，若想每一项都有边框，则还需要在 &lt;table&gt; 加上 border="1"</li>
+    </ol>
     <script src="main.js"></script>
 </body>
 
