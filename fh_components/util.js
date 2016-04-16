@@ -24,7 +24,7 @@ var addEvent = (function() {
  * 事件移除函数(惰性加载)
  * @param { HTMLElement  } ele    需要移除事件的Dom对象
  * @param { String   } event      移除的事件类型
- * @param { Fucntion } handler    需要移除的执行函数
+ * @param { Function } handler    需要移除的执行函数
  */
 var removeEvent = (function() {
     if (document.removeEventListener) {
@@ -42,6 +42,66 @@ var removeEvent = (function() {
     }
 })();
 
+
+/**
+ * 事件代理
+ * @param   {HTMLElement}   element   需要进行事件代理的父元素。
+ * @param   {string}   tag       需要触发事件的标签名
+ * @param   {string}   eventName 触发的事件类型
+ * @param   {function} listener  事件执行的函数
+ */
+function delegateEvent(element, tag, eventName, listener) {
+    return addEvent(element, eventName, function(ev) {
+        var oEvent = ev || event; //兼容处理
+        var target = oEvent.target || oEvent.srcElement; //兼容处理
+        if (target.tagName.toLocaleLowerCase() === tag) {
+            listener.call(target, oEvent); //使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）
+        }
+    });
+}
+
+/**
+ * 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递
+ * @param  {Array}   arr 需要进行遍历的数组
+ * @param  {Function} fn  对于数组项所执行的函数
+ * fn(arr[i], i)
+ * @config 数组项，索引
+ */
+function each(arr, fn) {
+    for (var i = 0, len = arr.length; i < len; i++) {
+        fn(arr[i], i); //遍历传参
+    }
+}
+//
+/**
+ * 数组去重，只考虑数组中元素为数字或字符串，返回一个去重后的数组
+ * @param  {Array} arr 需要进行处理的数组
+ * @return {Array}     去重后的数组
+ */
+function uniqArray(arr) {
+    // your implement
+    var result = []; //创建一个新数组。
+    for (var i = 0, l = arr.length; i < l; i++) {
+        if (result.indexOf(arr[i]) === -1) { //查找是否已经含有该元素
+            result.push(arr[i]); //添加到新数组
+        }
+    }
+    return result; //返回新数组
+
+}
+/**
+ * 字符串去除首尾空白
+ * @param  {String} str 待处理的字符串
+ * @return {String}     去除空白后的字符串
+ */
+function trim(str) {
+    // your implement
+    var result = "";
+    result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
+    return result;
+}
+
+
 /**
  * 查找元素中是否具有某个class名
  * @param  {HTMLElement}  element 待查找的Dom对象
@@ -58,7 +118,7 @@ function hasClass(element, sClass) {
 /**
  * 获取实际样式函数
  * @param   {HTMLElement}   element  需要寻找的样式的Dom对象
- * @param   {String]} attr 在对象中寻找的样式属性
+ * @param   {String} attr 在对象中寻找的样式属性
  * @returns {String} 获取到的属性
  */
 function getStyle(element, attr) {
@@ -76,9 +136,8 @@ function getStyle(element, attr) {
  * 边界限制函数
  * @param  {HTMLElement} element 需要进行边界限制的Dom对象
  * @param  {Number} away         边界吸附距离
- * @param  {Objec} ev            事件对象
+ * @param  {Object} ev           事件对象
  */
-
 function boundary(element, away, ev) {
     var oEvent = ev || window.event;
     //
@@ -111,7 +170,7 @@ function boundary(element, away, ev) {
  * @param {String} selector     css选择器带前缀如`#`等，触发鼠标事件的对象（必须在DOM对象中）
  * @param {Function} func       在鼠标移动的时候做一些什么
  */
-function setDrag(element,selector,func) {
+function setDrag(element, selector, func) {
 
     var moveObj = element.querySelector(selector);
 
@@ -155,3 +214,4 @@ function setDrag(element,selector,func) {
         }
     }
 }
+
