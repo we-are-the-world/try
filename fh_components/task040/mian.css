@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding:50px;
+    background-color: #f2f2f2;
+}
+
+.date{
+    width: 260px;
+    background-color: #FFF;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+.date-table{
+    margin: 0 auto;
+    width: 200px;
+}
+.date-table caption{
+    color: #773c88;
+    font-size: 14px;
+    font-weight: 600;
+}
+.date-table caption .caption-left{
+    float: left;
+}
+.date-table caption .caption-right{
+    float: right;
+}
+.date-table td,.date-table th{
+    height: 25px;
+    border-bottom: 1px solid #eee;
+    color: #999;
+    text-align: center;
+}
+.date-table td:hover{
+    background-color:#773c88;
+    color:#fff;
+}
