@@ -4,8 +4,4 @@
 
 团队主页地址：[http://we-are-the-world.github.io/try/index/](http://we-are-the-world.github.io/try/index/)
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> master
