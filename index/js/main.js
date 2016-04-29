@@ -19,10 +19,10 @@
 			afterLoad: function(archorLink, index) {
 				if (index == 1) {
 					
-					one.addClass("bounceInDown");
-					two.addClass('bounceInRight');
-					three.addClass('bounceInLeft');
-					four.addClass('bounceInUp');
+					one.removeClass("bounceOutDown").addClass("bounceInDown animated");
+					two.removeClass("bounceOutRight").addClass('bounceInRight animated');
+					three.removeClass("bounceOutLeft").addClass('bounceInLeft animated');
+					four.removeClass("bounceOutUp").addClass('bounceInUp animated');
 
 				} else if (index == "2") {
 					$(".part1").animate({
@@ -88,6 +88,7 @@
 				})(archorLink, index);
 
 				if (index == 5) {
+                    $('#chen_intro5 div').css("z-index","1");
 					$('#chen_intro1').addClass("chen_anima1");
 					$('#chen_intro2').addClass("chen_anima2");
 					$('#chen_intro3').addClass("chen_anima3");
@@ -99,10 +100,10 @@
 			},
 			onLeave: function(index, nextIndex, direction) {
 				if (index == "1") {
-					one.removeClass("bounceInDown");
-					two.removeClass('bounceInRight');
-					three.removeClass('bounceInLeft');
-					four.removeClass('bounceInUp');
+					one.removeClass("bounceInDown").addClass("bounceOutDown");
+					two.removeClass('bounceInRight').addClass("bounceOutRight");
+					three.removeClass('bounceInLeft').addClass("bounceOutLeft");
+					four.removeClass('bounceInUp').addClass("bounceOutUp");
 				} else if (index == "2") {
 					$(".part1").animate({
 						left: "-60rem"
@@ -111,24 +112,25 @@
 						right: "-60rem"
 					}, 500);
 				}
-				// 第四屏
-				(function(nextIndex) {
-					if (nextIndex == 3 || nextIndex == 5) {
-						$(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
-						$(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
-						$(".g_title").find("p").removeClass(" flip");
-						$(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
-					}
-				})(nextIndex);
+                // 第四屏
+                (function(nextIndex){
+                    if(nextIndex==3||nextIndex==5){
+                        $(".g_guowen_icon").removeClass("rotateIn").addClass("rotateOut");
+                        $(".g_info_content").removeClass("bounceInLeft").addClass("bounceOutLeft");
+                        $(".g_title").find("p").removeClass(" flip");
+                        $(".g_flip_container").removeClass("rotateInDownRight").addClass("rotateOutDownRight");
+                    }
+                })(nextIndex);
 
-				if (index == 5) {
-					$('#chen_intro1').removeClass("chen_anima1");
-					$('#chen_intro2').removeClass("chen_anima2");
-					$('#chen_intro3').removeClass("chen_anima3");
-					$('#chen_intro4').removeClass("chen_anima4");
-					$('.section5 p,.section5 h1').removeClass("chen_anima5");
+                if (index == 5){
+                    $('#chen_intro1').removeClass("chen_anima1");
+                    $('#chen_intro2').removeClass("chen_anima2");
+                    $('#chen_intro3').removeClass("chen_anima3");
+                    $('#chen_intro4').removeClass("chen_anima4");
+                    $('.section5 p,.section5 h1').removeClass("chen_anima5");
+                    $('#chen_intro5 div').css("z-index","-1");
 
-				}
+                }
 			}
 
 		});

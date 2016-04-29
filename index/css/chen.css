@@ -1,6 +1,5 @@
 
 
-/***********陈伟钰的样式****************/
 
 .section5 {
     background-color: #C2E5FF !important;
@@ -21,6 +20,7 @@
     border: 1px solid #B6DDF9;
     border-radius: 0.5rem;
     box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
+    
 
 }
 
@@ -45,10 +45,10 @@
 }
 
 .chen_anima1 {
-    animation:          chenAnimate1 10s  ;
-    -webkit-animation : chenAnimate1 10s  ;
-    -moz-animation:     chenAnimate1 10s  ;   
-    -o-animation:       chenAnimate1 10s  ;
+    animation:          chenAnimate1 8s  ;
+    -webkit-animation : chenAnimate1 8s  ;
+    -moz-animation:     chenAnimate1 8s  ;   
+    -o-animation:       chenAnimate1 8s  ;
 
     animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
@@ -64,10 +64,10 @@
 }
 
 .chen_anima2 {
-    animation:          chenAnimate2 10s  ;
-    -webkit-animation : chenAnimate2 10s  ;
-    -moz-animation:     chenAnimate2 10s  ;   3
-    -o-animation:       chenAnimate2 10s  ;
+    animation:          chenAnimate2 8s  ;
+    -webkit-animation : chenAnimate2 8s  ;
+    -moz-animation:     chenAnimate2 8s  ;   3
+    -o-animation:       chenAnimate2 8s  ;
 
     animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
@@ -85,10 +85,10 @@
 }
 
 .chen_anima3 {
-    animation:          chenAnimate3 10s  ;
-    -webkit-animation : chenAnimate3 10s  ;
-    -moz-animation:     chenAnimate3 10s  ;   
-    -o-animation:       chenAnimate3 10s  ;
+    animation:          chenAnimate3 8s  ;
+    -webkit-animation : chenAnimate3 8s  ;
+    -moz-animation:     chenAnimate3 8s  ;   
+    -o-animation:       chenAnimate3 8s  ;
 
     animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
@@ -106,10 +106,10 @@
 }
 
 .chen_anima4 {
-    animation:          chenAnimate4 10s  ;
-    -webkit-animation : chenAnimate4 10s  ;
-    -moz-animation:     chenAnimate4 10s  ;   
-    -o-animation:       chenAnimate4 10s  ;
+    animation:          chenAnimate4 8s  ;
+    -webkit-animation : chenAnimate4 8s  ;
+    -moz-animation:     chenAnimate4 8s  ;   
+    -o-animation:       chenAnimate4 8s  ;
 
     animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
@@ -128,6 +128,10 @@
     
 }
 
+#chen_intro5>div {
+    z-index: -1;
+}
+
 .section5 p,.section5 h1 {
     opacity: 0; 
 }
@@ -135,10 +139,10 @@
 
 p.chen_anima5,h1.chen_anima5{
     opacity: 0;
-    animation:          chenAnimateEnd 10s  ;
-    -webkit-animation : chenAnimateEnd 10s  ;
-    -moz-animation:     chenAnimateEnd 10s  ;   
-    -o-animation:       chenAnimateEnd 10s  ;
+    animation:          chenAnimateEnd 8s  ;
+    -webkit-animation : chenAnimateEnd 8s  ;
+    -moz-animation:     chenAnimateEnd 8s  ;   
+    -o-animation:       chenAnimateEnd 8s  ;
 
     animation-fill-mode:      forwards;
     -webkit-animation-fill-mode:        forwards; 
@@ -147,16 +151,9 @@ p.chen_anima5,h1.chen_anima5{
 }
 
 
-/*
 
-#chen_intro5>div {
-    -webkit-animation : chenAnimateBegin 3s ;
-    -moz-animation:     chenAnimateBegin 3s;
-    
-}
-*/
 
-/*********动画块零************/
+
 @keyframes chenAnimateEnd{
    0% { opacity: 0; }
    50% { opacity: 0; }      
@@ -185,108 +182,261 @@ p.chen_anima5,h1.chen_anima5{
 
 }
 
-/************动画块一***************/
+
+
+
+
 @keyframes chenAnimate1{
     0%   { left:-180rem;top: -80.0rem;  }
-    35%  { left:0rem;top: 0rem; }
+    30%  { left:0rem;top: 0rem; }
     100% { left:-18rem; top: -8.0rem; }
 }
 
 @-webkit-keyframes chenAnimate1{
   
     0%   { left:-180rem;top: -80.0rem;  }
-    35%  { left:0rem;top: 0rem; }
+    30%  { left:0rem;top: 0rem; }
     100% { left:-18rem; top: -8.0rem; }
 }
 
 @-moz-keyframes chenAnimate1{
     0%   { left:-180rem;top: -80.0rem;  }
-    35%  { left:0rem;top: 0rem; }
+    30%  { left:0rem;top: 0rem; }
     100% { left:-18rem; top: -8.0rem; }
 }
 
 @-o-keyframes chenAnimate1{
     0%   { left:-180rem;top: -80.0rem;  }
-    35%  { left:0rem;top: 0rem; }
+    30%  { left:0rem;top: 0rem; }
     100% { left:-18rem; top: -8.0rem; }
 }
 
-/*************动画块二***************/
+/*************animate2***************/
 @keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
 }
 
 @-webkit-keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
 }
 
 @-moz-keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
 }
 
 @-o-keyframes chenAnimate2{ 
     0% {  left:180rem; top: -80.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: -8.0rem; }
 }
 
 
-/**********动画块三*********************/
+/**********animate3*********************/
 @keyframes chenAnimate3{ 
     0% {      left:-180rem;top:  100.0rem;    }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:-18rem; top: 10.0rem; }
 }
 
 @-webkit-keyframes chenAnimate3{ 
     0% {      left:-180rem;top:  100.0rem;    }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:-18rem; top: 10.0rem; }
 }
 
 @-moz-keyframes chenAnimate3{ 
     0% {      left:-180rem;top:  100.0rem;    }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:-18rem; top: 10.0rem; }
 }
 
 @-o-keyframes chenAnimate3{ 
     0% {      left:-180rem;top:  100.0rem;    }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:-18rem; top: 10.0rem; }
 }
 
-/*************动画块四*****************/
+/*************animate4*****************/
 
 @keyframes chenAnimate4{ 
     0% {    left:180rem; top:  100.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: 10.0rem; }
 }
 
 @-webkit-keyframes chenAnimate4{ 
     0% {    left:180rem; top:  100.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: 10.0rem; }
 }
 
 @-moz-keyframes chenAnimate4{ 
     0% {    left:180rem; top:  100.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: 10.0rem; }
 }
 
 @-o-keyframes chenAnimate4{ 
     0% {    left:180rem; top:  100.0rem;   }
-    35% {  left:0rem;top: 0rem; }
+    30% {  left:0rem;top: 0rem; }
     100% {    left:18rem; top: 10.0rem; }
 }
 
 
 /**************************************/
+
+
+@media (max-width: 768px) {
+       
+    .section5 div {
+        width:15.0rem;
+        height: 4.4rem;
+        padding: 0.1rem;
+        line-height: 0.7rem;
+        border: 1px solid #B6DDF9;
+        border-radius: 0.5rem;
+        box-shadow: 0.5rem 0.5rem 1.0rem #A6D9FF;
+
+    }
+
+    #chen_intro5 {
+
+        position: relative;
+        
+        left:0;
+        top:11.0rem;
+        margin-left:0;
+        
+    }
+
+
+    .section5 h1 {
+        text-align: center;
+        padding-bottom: 0.1rem; 
+        font-size: 1.0rem;
+        line-height: 1.2rem;
+    }
+    .section5 p{
+        font-size: 0.5rem;
+        text-align: left;
+        line-height: 0.7rem;
+    }
+
+
+
+
+
+
+
+    /************鍔ㄧ敾鍧椾竴***************/
+    @keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate1{
+      
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem; top: -10.0rem; }
+    }
+
+    @-o-keyframes chenAnimate1{
+        0%   { left:-180rem;top: -80.0rem;  }
+        30%  { left:0rem;top: 0rem; }
+        100% { left:0rem;  top: -10.0rem; }
+    }
+
+    /*************鍔ㄧ敾鍧椾簩***************/
+    @keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate2{ 
+        0% {  left:180rem; top: -80.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: -5.0rem; }
+    }
+
+
+    /**********鍔ㄧ敾鍧椾笁*********************/
+    @keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    @-o-keyframes chenAnimate3{ 
+        0% {      left:-180rem;top:  100.0rem;    }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 5.0rem; }
+    }
+
+    /*************鍔ㄧ敾鍧楀洓*****************/
+
+    @keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-webkit-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-moz-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+    @-o-keyframes chenAnimate4{ 
+        0% {    left:180rem; top:  100.0rem;   }
+        30% {  left:0rem;top: 0rem; }
+        100% {    left:0rem; top: 10.0rem; }
+    }
+
+
+
+}
