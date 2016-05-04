@@ -313,12 +313,16 @@ Calendar.prototype = {
           if(renderData.date <= 0){
             renderData.date++;
             td.innerHTML = renderData.lastMonthDisplayOrigin++;
+            td.style.color='#ccc';
+            td.className = 'prevMonth';
             continue;
           }
           if(renderData.date <= renderData.dateSum) {
             td.innerHTML = renderData.date++;
           }else{
             td.innerHTML = renderData.nextMonthOrigin++;
+            td.style.color='#ccc';
+            td.className = 'nextMonth';
           }
         }
         tbody.appendChild(tr);
@@ -388,22 +392,39 @@ Calendar.prototype = {
 
 
 
-
       var yearSelect = document.getElementsByClassName("yearSelect")[0];
       var usermonthSelect = document.getElementsByClassName("usermonthSelect")[0];
 
-      var dateString = yearSelect.value + '-' + usermonthSelect.value + '-' + event.target.innerText;
+      var dateString;
 
-      if(parseInt(event.target.innerText) < 31)  //防止点到中间的位置出现BUG
+      if(parseInt(event.target.innerText) <= 31)  //防止点到两td的间隙出现BUG
       {
 
-        var dateString = yearSelect.value + '-' + usermonthSelect.value + '-' + event.target.innerText;
-
+        if(event.target.className == 'prevMonth') {
+          if(usermonthSelect.value = 1){
+            dateString = (parseInt(yearSelect.value ) - 1 ) + '-' + 12  + '-' + event.target.innerText;
+          }else{
+            dateString = yearSelect.value + '-' + ( parseInt(usermonthSelect.value) - 1 )  + '-' + event.target.innerText;
+          }
+        }else if(event.target.className == 'nextMonth'){
+          if(usermonthSelect.value = 12){
+            dateString = (parseInt(yearSelect.value ) + 1 ) + '-' + 1  + '-' + event.target.innerText;
+          }else{
+            dateString = yearSelect.value + '-' + ( parseInt(usermonthSelect.value) + 1 )  + '-' + event.target.innerText;
+          }
+        }else {
+          dateString = yearSelect.value + '-' + usermonthSelect.value  + '-' + event.target.innerText ;
+        }
         modifyTargetValue(target,dateString);
       }
     });
 
+
+
+
+
     var prev = selectContainer.getElementsByClassName('prev')[0];
+
     addEvent(prev,'click',function(){
       var yearSelect = selectContainer.getElementsByTagName('select')[0];
       var monthSelect = selectContainer.getElementsByTagName('select')[1];
