@@ -9,23 +9,6 @@
  * 2.输入框中输入对应日期(尝试)
  * */
 
-//calendar作为主函数，调用以生成日历
-
-/*
- * config 设计
- *
- * startDate String 2000-1-1
- * endDate String 2050-12-31
- * 设置开始和结束日期，中间的为可选时间
- * target HTMLObject
- * defaultDate String 2016-4-19
- * addStyleID String
- * canSelectDate Bool
- * 日历上的日期是否可点选
- *
- * */
-
-
 
 
 var config = {
@@ -33,8 +16,11 @@ var config = {
   endDate:"2050-10-31",
   targetID:"dateInput",
   defaultDate:"2016-4-21",
-  addStyleID:"userStyle",
+  canPrevNext:true,
+
+  //未使用
   canSelectDate:true  //日历面板点选日期
+
 };
 
 var myCalendar = new Calendar(config);

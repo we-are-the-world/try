@@ -3,10 +3,10 @@
  */
 
 /*
-* 暴露交互接口在Calendar对象上，方便处理,
-* 类似组件
-*
-* */
+ * 暴露交互接口在Calendar对象上，方便处理,
+ * 类似组件
+ *
+ * */
 
 
 
@@ -42,8 +42,23 @@ Calendar.prototype = {
 
     var yearLength = getYearLength.call(this,this.config.startDate,this.config.endDate);
 
+    var selectContainer = document.createElement('div');
+    selectContainer.className = 'selectContainer';
+    body.appendChild(selectContainer);
 
-    function createSelect(container,yearLength){
+
+
+
+
+
+
+    //生成左右跳转
+    function createCalendarTitle(container,yearLength){
+      //生成prev按钮
+      var prev = document.createElement('span');
+      prev.innerText = '<';
+      prev.className = 'prev';
+      container.appendChild(prev);
 
       //生成年份下拉菜单
       var yearSelect = document.createElement("select");
@@ -53,6 +68,7 @@ Calendar.prototype = {
         yearOpt.innerText =   startYear + i ;
         yearSelect.appendChild(yearOpt);
       }
+
       //生成 月份 下拉菜单
       var usermonthSelect = document.createElement("select");
       usermonthSelect.className = 'usermonthSelect';
@@ -65,13 +81,25 @@ Calendar.prototype = {
       container.appendChild(yearSelect);
       container.appendChild(usermonthSelect);
 
-
       //將用於交互的下拉菜單暴露出
       this.yearSelect = yearSelect;
       this.usermonthSelect = usermonthSelect;
+
+      //生成next按钮
+      var next = document.createElement('span');
+      next.className = 'next';
+      next.innerText = '>';
+      container.appendChild(next);
     }
 
-    createSelect.call(this,body,yearLength);
+    createCalendarTitle.call(this,selectContainer,yearLength);
+
+
+
+
+
+
+
 
 
     //动态修改输入框日期
@@ -89,7 +117,7 @@ Calendar.prototype = {
 
 
     //生成日历面板
-    
+
     var CalendarTable = document.createElement("table");
     CalendarTable.className = 'CalendarTable';
 
@@ -111,10 +139,10 @@ Calendar.prototype = {
     //表头为静态，只生成一次
     function createCalendarPanel(CalendarTable){
       //生成日历thead
-      
+
       var thead = document.createElement("thead");
       var firstTr = document.createElement("tr");
-      
+
       for(var h = 0 ; h < 7 ; h++){
         var td = document.createElement("td");
         td.innerText = getSlogan(h);
@@ -130,7 +158,7 @@ Calendar.prototype = {
 
     createCalendarPanel.call(this,CalendarTable);
 
-/*    body.appendChild(table);*/
+    /*    body.appendChild(table);*/
 
 
     //处理时间
@@ -150,10 +178,10 @@ Calendar.prototype = {
     }
 
     /*
-    * param year Number;
-    * param userMonth Number;
-    * return Object  生成用于渲染日历的数据
-    * */
+     * param year Number;
+     * param userMonth Number;
+     * return Object  生成用于渲染日历的数据
+     * */
 
     function getRenderData(year,userMonth){
       /*
@@ -245,13 +273,13 @@ Calendar.prototype = {
       //上月天数
       var lastMonthSumDay = getLastMonthDayNum.call(this,year,userMonth);
 
- /*     console.log(lastMonthSumDay);*/
+      /*     console.log(lastMonthSumDay);*/
 
 
       //上月展示起点
       var lastMonthDisplayOrigin = ( lastMonthSumDay - lastMonthDaysDisplayed ) + 1;
 
-/*      console.log(lastMonthDisplayOrigin);*/
+      /*      console.log(lastMonthDisplayOrigin);*/
 
 
 
@@ -354,7 +382,7 @@ Calendar.prototype = {
 
 
 
-   CalendarTable= document.getElementsByClassName('CalendarTable')[0];
+    CalendarTable= document.getElementsByClassName('CalendarTable')[0];
 
     addEvent(CalendarTable,"click",function(event){
 
@@ -366,8 +394,77 @@ Calendar.prototype = {
 
       var dateString = yearSelect.value + '-' + usermonthSelect.value + '-' + event.target.innerText;
 
-      modifyTargetValue(target,dateString);
+      if(parseInt(event.target.innerText) < 31)  //防止点到中间的位置出现BUG
+      {
+
+        var dateString = yearSelect.value + '-' + usermonthSelect.value + '-' + event.target.innerText;
+
+        modifyTargetValue(target,dateString);
+      }
     });
+
+    var prev = selectContainer.getElementsByClassName('prev')[0];
+    addEvent(prev,'click',function(){
+      var yearSelect = selectContainer.getElementsByTagName('select')[0];
+      var monthSelect = selectContainer.getElementsByTagName('select')[1];
+      var nowYearOpt = yearSelect.selectedIndex;   //获取选中的opt的下标
+      var nowMonthOpt = monthSelect.selectedIndex;
+
+
+      //判断跳转逻辑
+      if(nowMonthOpt+1 == 1){
+        yearSelect.getElementsByTagName('option')[nowYearOpt-1].selected = 'selected';//实现修改select选中的option
+        monthSelect.getElementsByTagName('option')[11].selected = 'selected';
+      }else{
+        monthSelect.getElementsByTagName('option')[nowMonthOpt-1].selected = 'selected';
+      }
+
+
+
+
+
+      modifyCalendar();
+    });
+
+
+    /*
+    * selectContainer下使用事件代理,将除点击日期事件组织起来
+    * */
+
+
+
+
+
+
+
+
+
+
+
+
+    var next = selectContainer.getElementsByClassName('next')[0];
+
+    addEvent(next,'click',function(){
+      var yearSelect = selectContainer.getElementsByTagName('select')[0];
+      var monthSelect = selectContainer.getElementsByTagName('select')[1];
+      var nowYearOpt = yearSelect.selectedIndex;   //获取选中的opt的下标
+      var nowMonthOpt = monthSelect.selectedIndex;
+
+
+      //判断跳转逻辑
+      if(nowMonthOpt+1 == 12){
+        yearSelect.getElementsByTagName('option')[nowYearOpt+1].selected = 'selected';//实现修改select选中的option
+        monthSelect.getElementsByTagName('option')[0].selected = 'selected';
+      }else{
+        monthSelect.getElementsByTagName('option')[nowMonthOpt+1].selected = 'selected';
+      }
+
+      modifyCalendar();
+    });
+
+
+
+
 
   }
 
