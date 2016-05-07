@@ -401,13 +401,13 @@ Calendar.prototype = {
       {
 
         if(event.target.className == 'prevMonth') {
-          if(usermonthSelect.value = 1){
+          if(usermonthSelect.value == 1){
             dateString = (parseInt(yearSelect.value ) - 1 ) + '-' + 12  + '-' + event.target.innerText;
           }else{
             dateString = yearSelect.value + '-' + ( parseInt(usermonthSelect.value) - 1 )  + '-' + event.target.innerText;
           }
         }else if(event.target.className == 'nextMonth'){
-          if(usermonthSelect.value = 12){
+          if(usermonthSelect.value == 12){
             dateString = (parseInt(yearSelect.value ) + 1 ) + '-' + 1  + '-' + event.target.innerText;
           }else{
             dateString = yearSelect.value + '-' + ( parseInt(usermonthSelect.value) + 1 )  + '-' + event.target.innerText;
