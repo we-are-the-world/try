@@ -184,7 +184,7 @@
 
     addEvent(btn,'click',function(){   //验证提交
 
-        //删除之前的临时属性
+
 
         var questionTeam = getElementChildTeam(document.getElementsByClassName("questionTeam")[0]); //获取题目集合
 
@@ -206,13 +206,15 @@
                         if(trim(opt.value).length > 0 ) {  //去除前后空白后，有非空白字符未有效回答
                             break;
                         } else {  //无效输入
+                            unfilledQuests.push(i) ; //压入当前题目
                             alert('存在未填写的必选题或填写无效');
                         }
                     } else {
                         if(opt.checked) {  //存在选项被选中,跳过内 选项循环
                             break;
                         }
-                        if(j == optTeam.length-1 ) {
+                        if(j == optTeam.length-1 ) {  //所有选项都未选择
+                            unfilledQuests.push(i);
                             alert('存在未填写的必选题或填写无效');
                         }
                     }
@@ -220,8 +222,20 @@
             }
             continue;  //非必做题,跳过次次外部题目循环
         }
+        
+        alert('以下题目未填选' + unfilledQuests);
+
+/*        if(unfilledQuests.length === 0 ) {
+            return true;
+        } else {
+            for(var i = 0 ;)
+        }*/
 
 
     });
 
 })();
+
+
+
+//删除之前的临时属性,
