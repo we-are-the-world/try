@@ -34,6 +34,8 @@
     }
 
 
+
+
     //单选题需要找到之前选择的是哪一道，更改选择的选项后须先对之前选项计数-1，然后对新选项计数+1
     //多选题只需要判断更改后当前选项是true或false,true表示之前未选当前选项，对当前选项计数+1,,false表示之前已选,对当前选项计数-1
     /*
@@ -222,20 +224,27 @@
             }
             continue;  //非必做题,跳过次次外部题目循环
         }
-        
-        alert('以下题目未填选' + unfilledQuests);
 
-/*        if(unfilledQuests.length === 0 ) {
-            return true;
+
+        if(unfilledQuests.length === 0 ) {
+            alert('以下题目未填选' + unfilledQuests);
         } else {
-            for(var i = 0 ;)
-        }*/
+            for(var i = 0 , len =  data.questionTeam.length ; i < len ; i++) {  //遍历所有题目
+                delete data.questionTeam[i].selectedOption;  //删除属性
+                delete data.questionTeam[i].beforeAnswerValid;
+            }
+        }
 
 
     });
+    //判断临时属性是否删除
+/*    for(var i = 0 , len =  data.questionTeam.length ; i < len ; i++) {
+        alert(data.questionTeam[0].selectedOption);
+        alert(data.questionTeam[i].beforeAnswerValid);
+    }*/
 
 })();
 
 
 
-//删除之前的临时属性,
+//删除之前的临时属性
