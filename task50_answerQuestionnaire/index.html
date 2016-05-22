@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>微型调查问卷平台</title>
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jq-drag.js"></script>
+	<script type="text/javascript" src="js/pop.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+</head>
+<body>
+	<header>
+		<h1>问卷管理</h1><h2>我的问卷</h2>
+	</header>
+	<div class="questionnaireList">
+
+	</div>
+	<div id="dialog-modal"></div>
+	<script type="text/javascript" src="js/delete.js"></script>
+	<script>
+	/*
+	模拟数据
+	 */
+
+	// console.log(localStorage.getItem('data'));
+	//测试，当没有问卷时，自动添加预设的三个问卷
+	if ( !localStorage.getItem('data')) {
+		localStorage.setItem('data',JSON.stringify(data) ) ;
+	}
+
+	var researchs = JSON.parse( localStorage.getItem('data') ) ;
+	loadedRender($('.questionnaireList'),researchs); //表格渲染		
+
+	</script>
+</body>
+</html>
