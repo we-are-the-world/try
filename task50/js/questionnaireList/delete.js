@@ -112,7 +112,7 @@ var loadedRender = function($container, researchs) {
 									console.log(researchs)
 								}
 							});
-							console.log('aaa')
+
 						} else {   //tfoot 的删除按钮
 							var $checkedInput = $(".questionnaireTab tbody input:checked");
 							$checkedInput.parents('tr').remove();
@@ -144,9 +144,11 @@ var loadedRender = function($container, researchs) {
 			case 'checkQuest':
 				localStorage.activeResearchId = thisTr.find('input').attr('id');
 				window.location.href = answerQuestionnaireHref;	
+				break;
 			case 'newQuest' :
 				localStorage.activeResearchId = '' ;
 				window.location.href = newQuestHref;			
+				break;
 		}
 
 
