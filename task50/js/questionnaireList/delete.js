@@ -22,8 +22,8 @@ var checkboxEvent = function(){
  */
 var loadedRender = function($container, researchs) {
 	// var researchs = obj.paperMsg ;
-	var newQuestHref = 'editQuest.html',
-	    editQuestHref = 'editQuest.html',
+	var newQuestHref = 'edit.html',
+	    editQuestHref = 'edit.html',
 	    checkDataHref = 'showData.html',
 	    answerQuestionnaireHref = 'answerQuestionnaire.html';
 
