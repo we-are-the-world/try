@@ -50,6 +50,20 @@
 
 
     var body = document.getElementsByTagName("body")[0];
+
+
+
+    var activeResearchId = data.activeResearchId;
+
+    for(var i = 0 , len = data.paperMsg.length ; i < len ; i++) {
+        if(activeResearchId == data.paperMsg[i].researchId) {
+            break;  //跳出循环，i保存活动问卷的下标
+        }
+    }
+    var currentResearch = data.paperMsg[i];
+    var cur_questionTeam = currentResearch.questionTeam;
+
+
     //事件委托给body
     addEvent(body,'change',function(event){
 
@@ -66,7 +80,7 @@
                 //存在缺陷,对类名严格要求
                 var selectwhichQuest = selectOption.name.substring(selectOption.name.length - 1,selectOption.name.length);  //选中第几题,从1开始
 
-                alert('选择了第' + selectwhichQuest + '题');
+               /* alert('选择了第' + selectwhichQuest + '题');*/
 
 
 
@@ -74,19 +88,19 @@
                 for(var i = 0 , len = elementNodesTeam.length; i < len ; i++ ) {
                     
                     if(selectOption.parentNode == elementNodesTeam[i] ) {
-                        alert( '选中了第' + ( i+1 ) + "项" );
+                       /* alert( '选中了第' + ( i+1 ) + "项" );*/
                         
                     }
                 }
 
 
                 //selectwhichQuest从1开始,对应localStorage中数据需要减一
-                if(data.questionTeam[selectwhichQuest - 1 ].selectedOption == 'undefined') {  //第一次点击该题目
-                    data.questionTeam[selectwhichQuest - 1 ].selectedOption =  i ;
+                if(currentResearch.questionTeam[selectwhichQuest - 1 ].selectedOption == 'undefined') {  //第一次点击该题目
+                    currentResearch.questionTeam[selectwhichQuest - 1 ].selectedOption =  i ;
                 } else {  //之前已经选过当前单选题
-                    data.questionTeam[selectwhichQuest - 1].answerNum[data.questionTeam[selectwhichQuest - 1 ].selectedOption]--;  //之前选择的-1
-                    data.questionTeam[selectwhichQuest - 1].answerNum[i]++;  //当前选择的加1
-                    data.questionTeam[selectwhichQuest - 1].selectedOption = i; //将当前点击的设置为已选选项
+                    currentResearch.questionTeam[selectwhichQuest - 1].answerNum[currentResearch.questionTeam[selectwhichQuest - 1 ].selectedOption]--;  //之前选择的-1
+                    currentResearch.questionTeam[selectwhichQuest - 1].answerNum[i]++;  //当前选择的加1
+                    currentResearch.questionTeam[selectwhichQuest - 1].selectedOption = i; //将当前点击的设置为已选选项
                 }
 
 
@@ -101,19 +115,21 @@
 
                 var selectwhichOpt = selectOption.name.substring(selectOption.name.length - 1,selectOption.name.length );  //选中第几个选项,从1开始
 
+/*
                 alert('选择了第' + selectwhichQuest + '道题');
 
                 alert('选择了第' + selectwhichOpt + '个选项');
 
                 alert('选中当前选项?' + selectOption.checked);
+*/
 
                 if(selectOption.checked === true ) {
 
-                    data.questionTeam[selectwhichQuest - 1].answerNum[selectwhichOpt - 1 ]++;  //之前没选过,点击后加1
+                    currentResearch.questionTeam[selectwhichQuest - 1].answerNum[selectwhichOpt - 1 ]++;  //之前没选过,点击后加1
 
                 }
                 if(selectOption.checked === false) {
-                    data.questionTeam[selectwhichQuest - 1].answerNum[selectwhichOpt - 1 ]++; //之前选过，这次给取消了，减1
+                    currentResearch.questionTeam[selectwhichQuest - 1].answerNum[selectwhichOpt - 1 ]++; //之前选过，这次给取消了，减1
                 }
 
                 break;
@@ -128,34 +144,34 @@
                 var selectwhichQuest = textbox.name.substring(textbox.name.length - 1,textbox.name.length );  //选中第几题,从1开始
 
 
-                alert('选中了第' + selectwhichQuest + '道题' );
+/*                alert('选中了第' + selectwhichQuest + '道题' );*/
 
                 //beforeAnswerValid
                 //筛选有效答案
-                if(data.questionTeam[selectwhichQuest - 1].questType == 3 ) {
+                if(currentResearch.questionTeam[selectwhichQuest - 1].questType == 3 ) {
 
-                if(data.questionTeam[selectwhichQuest - 1].beforeAnswerValid == 'undefined') { //之前未回答过
+                if(currentResearch.questionTeam[selectwhichQuest - 1].beforeAnswerValid == 'undefined') { //之前未回答过
                     if(text.length == 0 ) {  //trim后长度为0，此次输入无效
-                        data.questionTeam[selectwhichQuest - 1].beforeAnswerValid = false; //回答无效
+                        currentResearch.questionTeam[selectwhichQuest - 1].beforeAnswerValid = false; //回答无效
                     } else {
-                        data.questionTeam[selectwhichQuest - 1].beforeAnswerValid = true;  //之前未回答过且回答有效
-                        data.questionTeam[selectwhichQuest - 1].answerValidNum++;
+                        currentResearch.questionTeam[selectwhichQuest - 1].beforeAnswerValid = true;  //之前未回答过且回答有效
+                        currentResearch.questionTeam[selectwhichQuest - 1].answerValidNum++;
                     }
                 } else {   //之前已经回答过
-                    if(data.questionTeam[selectwhichQuest - 1].beforeAnswerValid) {
+                    if(currentResearch.questionTeam[selectwhichQuest - 1].beforeAnswerValid) {
                         if(text.length == 0) {  //之前有效回答，此次更改为无效回答
-                            data.questionTeam[selectwhichQuest - 1].answerValidNum--;
+                            currentResearch.questionTeam[selectwhichQuest - 1].answerValidNum--;
                         } //之前有意义，之后也有意义,不做操作
                     } else {
                         if(text.length != 0) {  //之前无效，此时有效
-                            data.questionTeam[selectwhichQuest - 1].answerValidNum++;
+                            currentResearch.questionTeam[selectwhichQuest - 1].answerValidNum++;
                         }   //之前无效,此时也无效,不做操作
                     }
 
                 }
 
                 } else {
-                    alert('数据和视图对应错误');
+/*                    alert('数据和视图对应错误');*/
                 }
 
 
@@ -171,6 +187,17 @@
             
     },false);
 
+
+
+
+    for(var j = 0 , leng = cur_questionTeam.length ; i < leng ; i++ ) {  //循环遍历所有问题
+        if(cur_questionTeam[i].questType === 3) {  //选择文字题
+            cur_questionTeam[i].anwserSumNum++;
+        }
+    }
+
+    
+
     //前面对每道题的选择然后计数有个遗漏的地方就是,只有用户做过的题目才会计数,如果用户没做的题目,selectedOption和beforeAnswerValid为undefined,而对于多选项，同样的方法无法试用，因为多选项可以撤销之前选择的选项，除非统计选择的选项数组
 
 
@@ -184,40 +211,44 @@
     //文字题判断input的trim(value)长度是否大于0，true则有效，false无效
 
 
-    addEvent(btn,'click',function(){   //验证提交
-
+    addEvent(btn,'click',function(event){   //验证提交
 
 
         var questionTeam = getElementChildTeam(document.getElementsByClassName("questionTeam")[0]); //获取题目集合
 
         for(var i = 0 ; i < questionTeam.length ; i++) {  //外循环，题目循环
+            
 
-            if(data.questionTeam[i].isMust) {
+
+            if(currentResearch.questionTeam[i].isMust) {
                 //获取第i题的选项集合
 
                 var optTeam =  getElementChildTeam(getElementChildTeam(questionTeam[i])[1]);  //问题元素下的共两个元素，下标为1为表示选项容器元素(文本框容器),然后再通过容器再获取选项数组
+
 
                 for(var j = 0 ; j < optTeam.length ; j++) {   //内循环，选项循环
 
                     //单选复选存在value值，所以需要将选择和文本题的检验分开
 
-                    var opt = optTeam[j].getElementsByTagName('input')[0];
+                    var opt = getElementChildTeam(optTeam[j])[0];
 
 
-                    if(opt.type === 'text') {   //文本题
+
+
+                    if(opt.type == 'undefined') {   //文本题
                         if(trim(opt.value).length > 0 ) {  //去除前后空白后，有非空白字符未有效回答
                             break;
                         } else {  //无效输入
-                            unfilledQuests.push(i) ; //压入当前题目
-                            alert('存在未填写的必选题或填写无效');
+                            unfilledQuests.push(i+1) ; //压入当前题目
+                        /*    alert('存在未填写的必选题或填写无效');*/
                         }
                     } else {
                         if(opt.checked) {  //存在选项被选中,跳过内 选项循环
                             break;
                         }
                         if(j == optTeam.length-1 ) {  //所有选项都未选择
-                            unfilledQuests.push(i);
-                            alert('存在未填写的必选题或填写无效');
+                            unfilledQuests.push(i+1);
+                        /*    alert('存在未填写的必选题或填写无效');*/
                         }
                     }
                 }
@@ -226,17 +257,31 @@
         }
 
 
-        if(unfilledQuests.length === 0 ) {
-            alert('以下题目未填选' + unfilledQuests);
+
+
+        if(unfilledQuests.length != 0 ) {
+
+            $('#dialog-modal').dialog({
+                title: '系统提示',
+                content : '以下题目未填选',
+                height: 200,
+                button:{
+                    '确定' : function () {},
+                    '关闭' : function() {}
+                }
+            });
         } else {
-            for(var i = 0 , len =  data.questionTeam.length ; i < len ; i++) {  //遍历所有题目
-                delete data.questionTeam[i].selectedOption;  //删除属性
-                delete data.questionTeam[i].beforeAnswerValid;
+            for(var i = 0 , len =  currentResearch.questionTeam.length ; i < len ; i++) {  //遍历所有题目
+                delete currentResearch.questionTeam[i].selectedOption;  //删除属性
+                delete currentResearch.questionTeam[i].beforeAnswerValid;
+
             }
         }
 
+        event.preventDefault();
+        event.stopPropagation();
 
-    });
+    },false);
     //判断临时属性是否删除
 /*    for(var i = 0 , len =  data.questionTeam.length ; i < len ; i++) {
         alert(data.questionTeam[0].selectedOption);
@@ -247,4 +292,3 @@
 
 
 
-//删除之前的临时属性

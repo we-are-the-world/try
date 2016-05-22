@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="underscore-min.js"></script>
-    <link rel="stylesheet" type="text/css" href="lib/normalize.css">
-    <link rel="stylesheet" type="text/css" href="build/css/header.css">
-    <link rel="stylesheet" type="text/css" href="build/css/main.css">
+    <script src="js/underscore-min.js"></script>
+    <script src="js/questionnaireList/jquery1.10.2.min.js.js"></script>
+    <script src="js/questionnaireList/pop.js"></script>
+    <script src="js/questionnaireList/jq-drag.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/questionList/home.css">
+    <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/header.css">
+    <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/main.css">
     <style>
         label{
             display:block;
         }
-/*        label:hover{
-            background-color:red;
-        }*/
     </style>
 
 </head>
@@ -22,19 +23,18 @@
         <span class="logo">问卷管理</span>
         <span class="hd_title">我的问卷</span>
     </header>
-
-
-
-
-    <script type="text/template" id="temp">
+    <div id="dialog-modal"></div>
+    <script type="text/template" id="template">
         <div class="container">
-            <div class="rearch">
-                <div class="rearchHeader">
-                    <div class="rearchTitle"><%= rearchTitle %></div>
+            <div class="research">
+                <div class="researchHeader">
+
+                    <div class="researchTitle"><%= researchTitle %></div>
+
                     <!--<div class="reatchDescription"><%= description %></div>-->
                 </div>
-                <div class="rearchContentWrapper">
-                    <div class="rearchContent">
+                <div class="researchContentWrapper">
+                    <div class="researchContent">
                         <fieldset class="questionTeam">
                             <% for(var i = 0 ; i < questionTeam.length; i++ ) { %>
                             <div class="question<%= i+1 %> ">
@@ -76,13 +76,25 @@
                 </div>
             </div>
         </div>
+    </script>  <!--模版-->
+    <script src="js/config.js"></script>
+    <script>  //判断活动问卷，并渲染
+
+        var compiled = _.template(document.querySelector('#template').innerHTML);
+        //判断渲染哪个页面
+        var activeResearchId = data.activeResearchId;
+        for(var i = 0 , len = data.paperMsg.length ; i < len ; i++) {
+
+            if(activeResearchId == data.paperMsg[i].researchId) {
+
+                break;  //跳出循环，i保存活动问卷的下标
+            }
+        }
+
+
+        document.body.innerHTML += compiled(data.paperMsg[i]);  //用活动问卷对象渲染
     </script>
-    <script src="config.js"></script>
-    <script>
-        var compiled = _.template(document.querySelector('#temp').innerHTML);
-        document.body.innerHTML += compiled(data);
-    </script>
-    <script src="main.js"></script>
+    <script src="js/answerQuestionnaire/answerQuestionnaire.js"></script>
 </body>
 </html>
 

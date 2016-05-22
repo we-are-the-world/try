@@ -4,11 +4,11 @@
 
 
 var data = {
-    // activeResearchID : 1 ,
+    activeResearchId : 1 ,
     paperMsg :
     [
         {
-            researchID: 1,
+            researchId: 1,
             researchTitle: '关于考研的调查问卷',
             deadline: '2016-05-21',
             state: 2,  // 1：未发布 2：发布中 3：已结束
@@ -59,7 +59,7 @@ var data = {
         },
         //下一个问卷
         {
-            researchID: 2,
+            researchId: 2,
             researchTitle: '关于本天才的调查问卷',
             deadline: '2016-06-16',
             state: 1,  // 1：未发布 2：发布中 3：已结束
@@ -110,7 +110,7 @@ var data = {
         },
 
         {
-            researchID: 3,
+            researchId: 3,
             researchTitle: '关于尔等傻逼的调查问卷',
             deadline: '2016-03-11',
             state: 3,  // 1：未发布 2：发布中 3：已结束

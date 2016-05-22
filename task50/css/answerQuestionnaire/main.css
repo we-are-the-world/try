@@ -11,30 +11,30 @@ body {
   margin: 5rem auto;
   padding: 1rem; }
 
-.rearchHeader {
+.researchHeader {
   height: 2rem;
   padding: 2rem 4rem; }
-  .rearchHeader .rearchTitle {
+  .researchHeader .researchTitle {
     text-align: center;
     padding-bottom: 1rem;
     border-bottom: 2px solid #ccc; }
 
-.rearchContentWrapper .rearchContent {
+.researchContentWrapper .researchContent {
   padding: 1rem 3rem; }
 
-.rearchContentWrapper .questionTeam > div[class^='question'] {
+.researchContentWrapper .questionTeam > div[class^='question'] {
   padding: 0 2rem; }
-  .rearchContentWrapper .questionTeam > div[class^='question']:hover {
+  .researchContentWrapper .questionTeam > div[class^='question']:hover {
     background: pink; }
-    .rearchContentWrapper .questionTeam > div[class^='question']:hover .questionTitle {
+    .researchContentWrapper .questionTeam > div[class^='question']:hover .questionTitle {
       font-weight: 600; }
-  .rearchContentWrapper .questionTeam > div[class^='question'] .questOptTeam {
+  .researchContentWrapper .questionTeam > div[class^='question'] .questOptTeam {
     padding: 0.5rem 1.5rem; }
-    .rearchContentWrapper .questionTeam > div[class^='question'] .questOptTeam label {
+    .researchContentWrapper .questionTeam > div[class^='question'] .questOptTeam label {
       padding: 0.25rem; }
-  .rearchContentWrapper .questionTeam > div[class^='question'] .questAnsContainer {
+  .researchContentWrapper .questionTeam > div[class^='question'] .questAnsContainer {
     padding: 2rem 2rem; }
-  .rearchContentWrapper .questionTeam > div[class^='question'] label textarea {
+  .researchContentWrapper .questionTeam > div[class^='question'] label textarea {
     border: 1px solid #000;
     width: 40rem;
     height: 8rem; }

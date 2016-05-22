@@ -103,7 +103,7 @@
 				},
 				modal: true,
 				drag: true
-			}
+			};
 			$.extend(defaultOptions,options);
 
 			var newPop = new Pop(defaultOptions);
@@ -112,7 +112,7 @@
 		}
 	});	
 
-})()
+})();
 
 
 
