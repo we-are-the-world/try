@@ -17,12 +17,6 @@ requirejs.config({
 require(['jquery','editCommon','underscore'],function ($,common) {
     //当没有ls时，伪造数据
     common.initLg();
-    //日历
-    $('#end-date').calendar({
-        yearRange: [1900, 2100],
-        defaultDate: '2016-04-01',
-        isSelectRange: false  	//选择时间点
-    });
 
     var eachWrapper = '.each-question-wrap';
     //点添加问题
@@ -113,7 +107,7 @@ require(['jquery','editCommon','underscore'],function ($,common) {
             arr.push(newObj);
 
             paperJson = JSON.stringify(arr);
-        }else if(lgObj.getItem('activeResrearch')!=""){//点击编辑后做增删改处理
+        }else if(lgObj.getItem('activeResearchID')!=""){//点击编辑后做增删改处理
             var beforeLs = JSON.parse(papers),
                 activeId = common.getActiveResearch();
             $.each(beforeLs, function (ind, ths) {
@@ -175,4 +169,10 @@ require(['jquery','editCommon','underscore'],function ($,common) {
     var existDate = deadlineCpd(papers);
     $("#end-date").val($.trim(existDate));
     
+    //日历
+    $('#end-date').calendar({
+        yearRange: [1900, 2100],
+        defaultDate: '2016-04-01',
+        isSelectRange: false  	//选择时间点
+    });
 });

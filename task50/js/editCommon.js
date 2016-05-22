@@ -183,7 +183,7 @@ define(['jquery'], function ($) {
         },
         getActiveResearch:function () {
             var lg = window.localStorage,
-                activeId = lg.getItem('activeResrearch');
+                activeId = lg.getItem('activeResearchID');
             return activeId;
         },
         getPaperMsg:function () {
