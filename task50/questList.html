@@ -5,17 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>微型调查问卷平台</title>
 
-	<link rel="stylesheet" type="text/css" href="css/questionList/home.css">
-	<script type="text/javascript" src="js/questionnaireList/jquery1.10.2.min.js.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/questionList/questionList.css">
+	<link rel="stylesheet" type="text/css" href="css/questionList/pop.css">
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/questionnaireList/jq-drag.js"></script>
 	<script type="text/javascript" src="js/questionnaireList/pop.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="css/home.css">
-	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jq-drag.js"></script>
-	<script type="text/javascript" src="js/pop.js"></script>
-	<!-- <script type="text/javascript" src="js/config.js"></script> -->
 
 </head>
 <body>
@@ -41,6 +36,7 @@
 		}
 
 		var researchs = JSON.parse( localStorage.getItem('data') ) ;
+		
 		loadedRender($('.questionnaireList'),researchs); //表格渲染		 	
 	}
 
