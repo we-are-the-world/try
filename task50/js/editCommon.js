@@ -137,8 +137,9 @@ define(['jquery'], function ($) {
                 obj.questTitle = ths.find('.q-top .xx-ct').text();
                 obj.questType = ths.find('[name=questType]').val();
                 if(ths.find(".text-input").length!=0) {//文本题
-                    options.push(ths.find('.text-input').val());
-                    answers.push(0);
+                    /*options.push(ths.find('.text-input').val());
+                    answers.push(0);*/
+                    obj.answerValidNum = 0;
                     //set json's isMust
                     if(ths.find('#isMust').is(':checked')) {
                         obj.isMust=true;
@@ -171,25 +172,33 @@ define(['jquery'], function ($) {
                 return 1;
             }else{
                 var afterParse = JSON.parse(val);
-                var max = afterParse[afterParse.length-1].researchID;
+                var max = afterParse[afterParse.length-1].researchId;
                 return max+1;
             }
         },
         initLg:function () {
             var currentMsg = window.localStorage.getItem('paperMsg');
             if(currentMsg==null) {
-                window.localStorage.setItem('paperMsg',JSON.stringify([{"researchID":1,"researchTitle":"title","deadline":"","state":1,"description":"我是描述","questionTeam":[{"questTitle":"多选题","questType":"2","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]},{"questTitle":"单选题","questType":"1","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]}]}]));
+                window.localStorage.setItem('paperMsg',JSON.stringify([{"researchId":1,"researchTitle":"title","deadline":"","state":1,"description":"我是描述","questionTeam":[{"questTitle":"多选题","questType":"2","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]},{"questTitle":"单选题","questType":"1","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]}]}]));
             }
         },
         getActiveResearch:function () {
             var lg = window.localStorage,
-                activeId = lg.getItem('activeResearchID');
+                activeId = lg.getItem('activeResearchId');
             return activeId;
         },
         getPaperMsg:function () {
             var lg = window.localStorage,
                 before = lg.getItem('paperMsg');
             return JSON.parse(before);
+        },
+        getCurrentTime:function () {
+            var date = new Date(),
+                y = date.getFullYear(),
+                m = date.getMonth()+1,
+                d = date.getDate();
+            var currentTime = y +'-'+m+'-'+d;
+            return currentTime;
         }
     }
     

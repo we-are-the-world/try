@@ -79,6 +79,12 @@ require(['jquery','editCommon','underscore'],function ($,common) {
         common.Down();
         common.Repeat();
         common.delete();
+    //日历
+    $('#end-date').calendar({
+        yearRange: [1900, 2100],
+        defaultDate: common.getCurrentTime(),
+        isSelectRange: false    //选择时间点
+    });
     /*save paper*/
     $(document).on("click",'#save',function () {
 
@@ -101,17 +107,17 @@ require(['jquery','editCommon','underscore'],function ($,common) {
         }
         if(papers==null) {//问卷为空时
             var arr = [];
-            newObj.researchID=1;
+            newObj.researchId=1;
             getBaseInfo();
 
             arr.push(newObj);
 
             paperJson = JSON.stringify(arr);
-        }else if(lgObj.getItem('activeResearchID')!=""){//点击编辑后做增删改处理
+        }else if(lgObj.getItem('activeResearchId')!=""){//点击编辑后做增删改处理
             var beforeLs = JSON.parse(papers),
                 activeId = common.getActiveResearch();
             $.each(beforeLs, function (ind, ths) {
-                if(ths.researchID == activeId) {
+                if(ths.researchId == activeId) {
                     ths.researchTitle = $.trim($("#paper-title").text());
                     ths.deadline = $("#end-date").val();
                     ths.questionTeam = common.getQuestionArr();
@@ -122,7 +128,7 @@ require(['jquery','editCommon','underscore'],function ($,common) {
         }else{//新增时
             var beforeLs = JSON.parse(papers);
 
-            newObj.researchID=common.getResearchId();
+            newObj.researchId=common.getResearchId();
             getBaseInfo();
 
             beforeLs.push(newObj);
@@ -132,6 +138,8 @@ require(['jquery','editCommon','underscore'],function ($,common) {
         }
         lgObj.setItem('paperMsg', paperJson);
         alert('保存成功');
+        //set current'id,prevent create's bug
+        window.localStorage.activeResearchId=common.getResearchId()-1;
         window.location.reload();
     });
 
@@ -144,7 +152,7 @@ require(['jquery','editCommon','underscore'],function ($,common) {
             after = JSON.parse(paper),
             currentId;
         $.each(after, function (ind, ele) {
-            currentId = ele.researchID;
+            currentId = ele.researchId;
             if (currentId == activeId) {
                 ele.state = 2;//调整为发布状态
                 alert('发布问卷成功');
@@ -169,10 +177,5 @@ require(['jquery','editCommon','underscore'],function ($,common) {
     var existDate = deadlineCpd(papers);
     $("#end-date").val($.trim(existDate));
     
-    //日历
-    $('#end-date').calendar({
-        yearRange: [1900, 2100],
-        defaultDate: '2016-04-01',
-        isSelectRange: false  	//选择时间点
-    });
+    
 });
