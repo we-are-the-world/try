@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/underscore-min.js"></script>
-    <script src="js/questionnaireList/jquery1.10.2.min.js.js"></script>
+    <script src="js/answerQuestionnaire/lib/jquery1.10.2.min.js.js"></script>
     <script src="js/questionnaireList/pop.js"></script>
     <script src="js/questionnaireList/jq-drag.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/questionList/home.css">
+    <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/lib/home.css">
     <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/header.css">
     <link rel="stylesheet" type="text/css" href="css/answerQuestionnaire/main.css">
@@ -80,19 +80,31 @@
     <script src="js/config.js"></script>
     <script>  //判断活动问卷，并渲染
 
+
         var compiled = _.template(document.querySelector('#template').innerHTML);
         //判断渲染哪个页面
-        var activeResearchId = data.activeResearchId;
-        for(var i = 0 , len = data.paperMsg.length ; i < len ; i++) {
 
-            if(activeResearchId == data.paperMsg[i].researchId) {
+        var activeResearchId = localStorage.activeResearchId;
+
+        console.log(activeResearchId);
+
+
+
+        var paperMsg = JSON.parse(localStorage.paperMsg);
+
+
+
+        for(var i = 0 , len = paperMsg.length ; i < len ; i++) {
+
+            if(activeResearchId == paperMsg[i].researchId) {
 
                 break;  //跳出循环，i保存活动问卷的下标
             }
         }
 
 
-        document.body.innerHTML += compiled(data.paperMsg[i]);  //用活动问卷对象渲染
+        document.body.innerHTML += compiled(paperMsg[i]);  //用活动问卷对象渲染
+
     </script>
     <script src="js/answerQuestionnaire/answerQuestionnaire.js"></script>
 </body>

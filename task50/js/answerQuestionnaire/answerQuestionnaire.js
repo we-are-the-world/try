@@ -53,14 +53,17 @@
 
 
 
-    var activeResearchId = data.activeResearchId;
+    var activeResearchId = localStorage.activeResearchId;
 
-    for(var i = 0 , len = data.paperMsg.length ; i < len ; i++) {
-        if(activeResearchId == data.paperMsg[i].researchId) {
+    var paperMsg = JSON.parse(localStorage.paperMsg);
+
+
+    for(var i = 0 , len = paperMsg.length ; i < len ; i++) {
+        if(activeResearchId == paperMsg[i].researchId) {
             break;  //跳出循环，i保存活动问卷的下标
         }
     }
-    var currentResearch = data.paperMsg[i];
+    var currentResearch = paperMsg[i];
     var cur_questionTeam = currentResearch.questionTeam;
 
 
@@ -225,6 +228,7 @@
 
                 var optTeam =  getElementChildTeam(getElementChildTeam(questionTeam[i])[1]);  //问题元素下的共两个元素，下标为1为表示选项容器元素(文本框容器),然后再通过容器再获取选项数组
 
+                unfilledQuests = [];
 
                 for(var j = 0 ; j < optTeam.length ; j++) {   //内循环，选项循环
 
@@ -234,11 +238,12 @@
 
 
 
-
-                    if(opt.type == 'undefined') {   //文本题
+                    if(opt.type == 'textarea') {   //文本题
                         if(trim(opt.value).length > 0 ) {  //去除前后空白后，有非空白字符未有效回答
+                            alert(opt.value);
                             break;
                         } else {  //无效输入
+                            alert(opt.value);
                             unfilledQuests.push(i+1) ; //压入当前题目
                         /*    alert('存在未填写的必选题或填写无效');*/
                         }
@@ -258,12 +263,11 @@
 
 
 
-
         if(unfilledQuests.length != 0 ) {
 
             $('#dialog-modal').dialog({
                 title: '系统提示',
-                content : '以下题目未填选',
+                content : '有题目未填选',
                 height: 200,
                 button:{
                     '确定' : function () {},
