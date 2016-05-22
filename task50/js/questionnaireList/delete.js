@@ -25,7 +25,7 @@ var loadedRender = function($container, researchs) {
 	var newQuestHref = 'editQuest.html',
 	    editQuestHref = 'editQuest.html',
 	    checkDataHref = 'showData.html',
-	    answerQuestionnaireHref = 'answerQuestionnaireHref.html';
+	    answerQuestionnaireHref = 'answerQuestionnaire.html';
 
 
 	var checkState = function(item) {
