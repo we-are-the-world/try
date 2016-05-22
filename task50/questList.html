@@ -30,13 +30,13 @@
 
 		//如果localStorage.data 是空的，初始化赋值填充数据
 		// console.log(localStorage.getItem('data'))
-		if ( !localStorage.getItem('data')) {
-			localStorage.setItem('data',JSON.stringify(data) ) ;
-			console.log('set localStorage.data successfully')
+		if ( !localStorage.getItem('paperMsg')) {
+			localStorage.setItem('paperMsg',JSON.stringify(data.paperMsg) ) ;
+			console.log('set localStorage.paperMsg successfully')
 		}
 
-		var researchs = JSON.parse( localStorage.getItem('data') ) ;
-		
+		var researchs = JSON.parse( localStorage.getItem('paperMsg') ) ;
+
 		loadedRender($('.questionnaireList'),researchs); //表格渲染		 	
 	}
 

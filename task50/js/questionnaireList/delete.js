@@ -20,11 +20,12 @@ var checkboxEvent = function(){
 /*
 * 加载时渲染表格
  */
-var loadedRender = function($container, obj) {
-	var researchs = obj.paperMsg ;
+var loadedRender = function($container, researchs) {
+	// var researchs = obj.paperMsg ;
 	var newQuestHref = 'editQuest.html',
 	    editQuestHref = 'editQuest.html',
-	    checkDataHref = 'checkData.html';
+	    checkDataHref = 'showData.html',
+	    answerQuestionnaireHref = 'answerQuestionnaireHref.html';
 
 
 	var checkState = function(item) {
@@ -36,7 +37,8 @@ var loadedRender = function($container, obj) {
 			}
 
 		} else {
-			return researchs[i].state == 1 ? '查看问卷' : '查看数据';			
+			return researchs[i].state == 1 ? '<a href="#" \
+			class="checkQuest">查看问卷</a>' : '<a href="#" class="checkData">查看数据</a>';			
 		}
 	}
 
@@ -77,7 +79,7 @@ var loadedRender = function($container, obj) {
 				+ '<td colspan="2">' +
 					'<a href=' + editQuestHref + ' class="editQuest">编辑</a> ' +
 					'<a href="##" class="deleteQuest" >删除</a> ' +
-					'<a href="#" class="checkData">' + checkState('check') + '</a>' +
+					 checkState('check')  +
 				'</td>' +
 			'</tr>');
 	}
@@ -106,7 +108,7 @@ var loadedRender = function($container, obj) {
 								if (thisQuestId == item.researchId ) {
 									// delete researchs[index];
 									researchs.splice(index,1);
-									localStorage.setItem('data',JSON.stringify(obj) ) ;
+									localStorage.setItem('paperMsg',JSON.stringify(researchs) ) ;
 									console.log(researchs)
 								}
 							});
@@ -118,7 +120,7 @@ var loadedRender = function($container, obj) {
 								researchs.forEach(function(item,index,array){
 									if (element.id == item.researchId) {
 										researchs.splice(index,1);
-										localStorage.setItem('data',JSON.stringify(obj) ) ;
+										localStorage.setItem('paperMsg',JSON.stringify(researchs) ) ;
 									}
 								});
 							});
@@ -128,22 +130,45 @@ var loadedRender = function($container, obj) {
 					}
 				}		
 			})			
-		} else if( this.className == 'editQuest' || this.className == 'checkData' ) {
-			localStorage.activeResearch = thisTr.find('input').attr('id');
+		} 
+
+		switch(this.className) {
+			case 'editQuest' : 
+				localStorage.activeResearchId = thisTr.find('input').attr('id');
+				window.location.href = editQuestHref;
+				break;
+			case 'checkData' :
+				localStorage.activeResearchId = thisTr.find('input').attr('id');
+				window.location.href = checkDataHref;
+				break;		
+			case 'checkQuest':
+				localStorage.activeResearchId = thisTr.find('input').attr('id');
+				window.location.href = answerQuestionnaireHref;	
+			case 'newQuest' :
+				localStorage.activeResearchId = '' ;
+				window.location.href = newQuestHref;			
+		}
+
+
+
+
+/*
+		else if( this.className == 'editQuest' || this.className == 'checkData' ) {
+			localStorage.activeResearchId = thisTr.find('input').attr('id');
 			console.log(localStorage);
 			if (this.className == 'editQuest') {
 				window.location.href = editQuestHref;
-			} else {
+			} else  {
 				window.location.href = checkDataHref;
 			}
 			
 		} else if ( this.className == 'newQuest' ) {
-			localStorage.activeResearch = '' ;
+			localStorage.activeResearchId = '' ;
 			console.log(localStorage);
 			window.location.href = newQuestHref;
 		} 
 
-
+*/
 		e.preventDefault();
 		e.stopPropagation();		
 	})			
