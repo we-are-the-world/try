@@ -6,11 +6,23 @@ requirejs.config({
     paths: {
         "jquery": ["http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min"],
         'underscore':"../node_modules/underscore/underscore-min"
+    },
+    shim:{
+        'calendar':{
+            deps:'jquery',
+            exports:'calendar'
+        }
     }
 });
 require(['jquery','editCommon','underscore'],function ($,common) {
     //当没有ls时，伪造数据
     common.initLg();
+    //日历
+    $('#end-date').calendar({
+        yearRange: [1900, 2100],
+        defaultDate: '2016-04-01',
+        isSelectRange: false  	//选择时间点
+    });
 
     var eachWrapper = '.each-question-wrap';
     //点添加问题
@@ -78,6 +90,8 @@ require(['jquery','editCommon','underscore'],function ($,common) {
 
         var is = confirm('你确定保存吗');
         if(!is) return false;
+
+
             var lgObj = window.localStorage,
                 papers = lgObj.getItem('paperMsg');
 
@@ -91,7 +105,7 @@ require(['jquery','editCommon','underscore'],function ($,common) {
             newObj.description = "我是描述";
             newObj.questionTeam = common.getQuestionArr();
         }
-        if(papers==null) {
+        if(papers==null) {//问卷为空时
             var arr = [];
             newObj.researchID=1;
             getBaseInfo();
@@ -99,7 +113,19 @@ require(['jquery','editCommon','underscore'],function ($,common) {
             arr.push(newObj);
 
             paperJson = JSON.stringify(arr);
-        }else{
+        }else if(lgObj.getItem('activeResrearch')!=""){//点击编辑后做增删改处理
+            var beforeLs = JSON.parse(papers),
+                activeId = common.getActiveResearch();
+            $.each(beforeLs, function (ind, ths) {
+                if(ths.researchID == activeId) {
+                    ths.researchTitle = $.trim($("#paper-title").text());
+                    ths.deadline = $("#end-date").val();
+                    ths.questionTeam = common.getQuestionArr();
+                }
+            });
+            paperJson = JSON.stringify(beforeLs);
+
+        }else{//新增时
             var beforeLs = JSON.parse(papers);
 
             newObj.researchID=common.getResearchId();
@@ -108,9 +134,45 @@ require(['jquery','editCommon','underscore'],function ($,common) {
             beforeLs.push(newObj);
 
             paperJson = JSON.stringify(beforeLs);
+
         }
-
         lgObj.setItem('paperMsg', paperJson);
-
+        alert('保存成功');
+        window.location.reload();
     });
+
+    $("#announce").click(function () {
+        var is = confirm('你确定发布该问卷吗');
+        if(!is) return;
+        var lg = window.localStorage,
+            activeId = common.getActiveResearch(),
+            paper = lg.getItem('paperMsg'),
+            after = JSON.parse(paper),
+            currentId;
+        $.each(after, function (ind, ele) {
+            currentId = ele.researchID;
+            if (currentId == activeId) {
+                ele.state = 2;//调整为发布状态
+                alert('发布问卷成功');
+                return false;
+            }else if(ind==after.length-1){
+                alert('请先保存问卷再发布问卷');
+            }
+        });
+        lg.setItem('paperMsg', JSON.stringify(after));
+    });
+
+    //get localstorge's paperMsg JSON
+    var papersCompiled = _.template(document.getElementById('hasQuests').innerText);
+    var existQuest = papersCompiled(papers);
+    $(".question-kind").before(existQuest);
+    //title
+    var titleCpd = _.template($('#researchTitle').text());
+    var existTitle = titleCpd(papers);
+    $("#paper-title").html(existTitle);
+    //deadline
+    var deadlineCpd = _.template($('#deadline').text());
+    var existDate = deadlineCpd(papers);
+    $("#end-date").val($.trim(existDate));
+    
 });

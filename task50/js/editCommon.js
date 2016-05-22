@@ -1,6 +1,6 @@
 /**
  *
- * Created by Administrator on 2016/5/20.
+ * Created by haiku on 2016/5/20.
  */
 define(['jquery'], function ($) {
     var wrap = $("#question-list"),
@@ -8,7 +8,7 @@ define(['jquery'], function ($) {
     function nextIndex() {
         return wrap.find('.each-question-wrap').length+1;
     }
-    function currentIndex() {
+    function wrapLength() {
         return wrap.find('.each-question-wrap').length;
     }
     function ltTen() {
@@ -17,6 +17,9 @@ define(['jquery'], function ($) {
         }else{
             return true;
         }
+    }
+    function wrapClickIndex(ths) {
+        return ths.parents('.each-question-wrap').index();
     }
     var obj  = {
         addSingle:function () {
@@ -67,9 +70,9 @@ define(['jquery'], function ($) {
                     addBtn.before("<div class='each-question-wrap'>" +
                         "<p class='q-top'>Q"+nextIndex()+" <span class='xx-ct'>文本题</span></p>" +
                         "<input type='hidden' name='questType' value='3'>"+
-                            "<span id='isMustWrapper'>"+
-                                "<input type='checkbox' id='isMust'/><label for='isMust'>是否必填</label>"+
-                            "</span>"+
+                        "<span id='isMustWrapper'>"+
+                        "<input type='checkbox' id='isMust'/><label for='isMust'>是否必填</label>"+
+                        "</span>"+
                         "<textarea class='text-input' name=''></textarea>" +
                         "<span class='bottom-handler' style='display: none;'>" +
                         "<span class='up btn'>上移</span>" +
@@ -84,7 +87,7 @@ define(['jquery'], function ($) {
         },
         Up:function () {
             $(document).on("click", '.up', function () {
-                if (currentIndex() != 1) {
+                if (wrapLength() != 1) {
                     var p = $(this).parents(".each-question-wrap"),
                         p_content = "<div class='each-question-wrap'>" + p.html() + '</div>',
                         curInd = p.index();
@@ -95,18 +98,19 @@ define(['jquery'], function ($) {
         },
         Down:function () {
             $(document).on("click", '.down', function () {
-                if (currentIndex() != 1) {
+                //当length为1，或者点击最后那个时不触发
+                if (wrapLength() != 1 && wrapLength()-1 != wrapClickIndex($(this))) {
                     var p = $(this).parents(".each-question-wrap"),
                         p_content = "<div class='each-question-wrap'>" + p.html() + '</div>',
                         curInd = p.index();
                     p.remove();
-                    $(".each-question-wrap").eq(curInd - 1).after(p_content);
+                    $(".each-question-wrap").eq(curInd).after(p_content);
                 }
             });
         },
         Repeat:function () {
             $(document).on("click", '.repeat', function () {
-
+                if(wrapLength()==10)return;
                     var p = $(this).parents(".each-question-wrap"),
                         p_content = "<div class='each-question-wrap'>" + p.html() + '</div>',
                         curInd = p.index();
@@ -126,13 +130,15 @@ define(['jquery'], function ($) {
             var questions = [];
             $('.each-question-wrap').each(function (index, element) {
                 var obj = {},
-                    options = [];
+                    options = [],
+                    answers = [];
                 var ths = $(element);
                 
-                obj.titleDesc = ths.find('.q-top .xx-ct').text();
+                obj.questTitle = ths.find('.q-top .xx-ct').text();
                 obj.questType = ths.find('[name=questType]').val();
                 if(ths.find(".text-input").length!=0) {//文本题
                     options.push(ths.find('.text-input').val());
+                    answers.push(0);
                     //set json's isMust
                     if(ths.find('#isMust').is(':checked')) {
                         obj.isMust=true;
@@ -146,13 +152,14 @@ define(['jquery'], function ($) {
                             var optThs = $(optEle);
                             var current = optThs.find('.xx-ct').text();
                             options.push(current);
+                            answers.push(0);
                         });
                     obj.isMust=true;
                 }
 
                 obj.questOption = options;
 
-                obj.answerNum=[];
+                obj.answerNum=answers;
                 questions.push(obj);
             });
             return questions;
@@ -171,8 +178,18 @@ define(['jquery'], function ($) {
         initLg:function () {
             var currentMsg = window.localStorage.getItem('paperMsg');
             if(currentMsg==null) {
-                window.localStorage.setItem('paperMsg',JSON.stringify([{"researchID":1,"researchTitle":"title","deadline":"","state":1,"description":"我是描述","questionTeam":[{"titleDesc":"多选题","questType":"2","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[]},{"titleDesc":"单选题","questType":"1","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[]}]}]));
+                window.localStorage.setItem('paperMsg',JSON.stringify([{"researchID":1,"researchTitle":"title","deadline":"","state":1,"description":"我是描述","questionTeam":[{"questTitle":"多选题","questType":"2","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]},{"questTitle":"单选题","questType":"1","isMust":true,"questOption":["选项一","选项二","选项三"],"answerNum":[0,0,0]}]}]));
             }
+        },
+        getActiveResearch:function () {
+            var lg = window.localStorage,
+                activeId = lg.getItem('activeResrearch');
+            return activeId;
+        },
+        getPaperMsg:function () {
+            var lg = window.localStorage,
+                before = lg.getItem('paperMsg');
+            return JSON.parse(before);
         }
     }
     
