@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jq-drag.js"></script>
 	<script type="text/javascript" src="js/pop.js"></script>
-	<script type="text/javascript" src="js/config.js"></script>
+	<!-- <script type="text/javascript" src="js/config.js"></script> -->
 </head>
 <body>
 	<header>
@@ -23,13 +23,10 @@
 	/*
 	模拟数据
 	 */
-	function init() {
-		//没有模拟数据时，需要提供一个空的对象
-		if (typeof data == 'undefined') {
-			var data = {paperMsg:[]};
-		}
+	function init(data) {
 
 		//如果localStorage.data 是空的，初始化赋值填充数据
+		// console.log(localStorage.getItem('data'))
 		if ( !localStorage.getItem('data')) {
 			localStorage.setItem('data',JSON.stringify(data) ) ;
 			console.log('set localStorage.data successfully')
@@ -39,9 +36,18 @@
 		loadedRender($('.questionnaireList'),researchs); //表格渲染		 	
 	}
 
-	init();
+	//没有模拟数据时，需要提供一个空的对象
+	console.log(typeof data)
+	if (typeof data == 'undefined') {
+		var data = {paperMsg:[]};
+	}
 
-	
+	init(data);
+
+	/*
+	* 测试结果，有模拟数据，如config.js 时，加载模拟数据中的问卷。
+	* 没有模拟数据时，问卷数为0
+	 */
 
 	</script>
 </body>
