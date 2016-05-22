@@ -23,15 +23,25 @@
 	/*
 	模拟数据
 	 */
+	function init() {
+		//没有模拟数据时，需要提供一个空的对象
+		if (typeof data == 'undefined') {
+			var data = {paperMsg:[]};
+		}
 
-	// console.log(localStorage.getItem('data'));
-	//测试，当没有问卷时，自动添加预设的三个问卷
-	if ( !localStorage.getItem('data')) {
-		localStorage.setItem('data',JSON.stringify(data) ) ;
+		//如果localStorage.data 是空的，初始化赋值填充数据
+		if ( !localStorage.getItem('data')) {
+			localStorage.setItem('data',JSON.stringify(data) ) ;
+			console.log('set localStorage.data successfully')
+		}
+
+		var researchs = JSON.parse( localStorage.getItem('data') ) ;
+		loadedRender($('.questionnaireList'),researchs); //表格渲染		 	
 	}
 
-	var researchs = JSON.parse( localStorage.getItem('data') ) ;
-	loadedRender($('.questionnaireList'),researchs); //表格渲染		
+	init();
+
+	
 
 	</script>
 </body>
