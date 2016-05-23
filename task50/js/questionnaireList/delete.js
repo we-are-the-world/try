@@ -17,6 +17,8 @@ var checkboxEvent = function(){
 }
 
 
+
+
 /*
 * 加载时渲染表格
  */
@@ -48,6 +50,18 @@ var loadedRender = function($container, researchs) {
 		}
 	}
 
+	var changeState = function(researchs) {
+		 var nowDate = new Date();
+		 for (var i = 0,len = researchs.length; i < len ;i++) {
+		 	var deadline =  new Date(researchs[i].deadline);
+		 	if (deadline < nowDate) {
+		 		researchs[i].state = 3 ;
+		 	}
+		 }
+	}	
+
+	changeState(researchs);
+
 
 	$container.append(
 		'<table class="questionnaireTab">' +
@@ -55,7 +69,7 @@ var loadedRender = function($container, researchs) {
 				'<tr>' +
 					'<th></th>' +
 					'<th>标题</th>' +
-					'<th>时间</th>' +
+					'<th>截止时间</th>' +
 					'<th>状态</th>' +
 					'<th>操作</th>' +
 					'<th><a href=' + newQuestHref + ' class="newQuest">╋ 新建问卷</a></th>' +
