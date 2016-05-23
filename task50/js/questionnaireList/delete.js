@@ -37,8 +37,8 @@ var loadedRender = function($container, researchs) {
 			}
 
 		} else {
-			return researchs[i].state == 1 ? '<a href="#" \
-			class="checkQuest">查看问卷</a>' : '<a href="#" class="checkData">查看数据</a>';			
+			return researchs[i].state == 3 ? '<a href=' + checkDataHref + '\
+			class="checkData">查看数据</a>' : '<a href='+answerQuestionnaireHref+' class="checkQuest">查看问卷</a>';			
 		}
 	}
 
@@ -152,28 +152,9 @@ var loadedRender = function($container, researchs) {
 		}
 
 
-
-
-/*
-		else if( this.className == 'editQuest' || this.className == 'checkData' ) {
-			localStorage.activeResearchId = thisTr.find('input').attr('id');
-			console.log(localStorage);
-			if (this.className == 'editQuest') {
-				window.location.href = editQuestHref;
-			} else  {
-				window.location.href = checkDataHref;
-			}
-			
-		} else if ( this.className == 'newQuest' ) {
-			localStorage.activeResearchId = '' ;
-			console.log(localStorage);
-			window.location.href = newQuestHref;
-		} 
-
-*/
 		e.preventDefault();
 		e.stopPropagation();		
-	})			
+	});			
 }
 
 
