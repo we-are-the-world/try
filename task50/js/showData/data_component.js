@@ -7,7 +7,8 @@ var data = JSON.parse(localStorage.getItem(papersPath))
 
 
 function DataShow (data, container, callback) {
-    this.data = data;
+    this.activeId = Number(localStorage.getItem('activeResearchId'));
+    this.data = data[this.activeId];
     this.rightContents = [];
     this.container = container;
     this.fragment = document.createDocumentFragment();
@@ -28,14 +29,14 @@ DataShow.prototype.init = function () {
         content = this.container.querySelector('.content'),
         footer = this.container.querySelector('.footer');
 
-    titleBar.querySelector('.title').innerHTML = this.data.rearchTitle;
+    titleBar.querySelector('.title').innerHTML = this.data.researchTitle;
     titleBar.querySelector('.description').innerHTML = this.data.description;
 };
 
 DataShow.prototype.renderData = function () {
     var self = this;
 
-    this.data.questionTeam.forEach(function (questionObj, index) {
+    self.data.questionTeam.forEach(function (questionObj, index) {
         var questionBar = document.createElement('div'),
             leftContent = document.createElement('div'),
             questionTitle = document.createElement('p'),
@@ -80,7 +81,7 @@ DataShow.prototype.addCharts = function () {
             config = {},
             data = [];
 
-        switch(questionObj.questType) {
+        switch(Number(questionObj.questType)) {
             case 1:
             case 2:
                 questionObj.questOption.forEach(function (option, i) {
@@ -161,7 +162,7 @@ DataShow.prototype.addCharts = function () {
                 };
                 break;
             default:
-                console.err('questType错误');
+                console.log('questType错误');
                 break;
         }
         dataEchart.setOption(config);
