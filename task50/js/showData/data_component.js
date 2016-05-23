@@ -8,7 +8,7 @@ var data = JSON.parse(localStorage.getItem(papersPath))
 
 function DataShow (data, container, callback) {
     this.activeId = Number(localStorage.getItem('activeResearchId'));
-    this.data = data[this.activeId];
+    this.data = data[this.activeId-1];
     this.rightContents = [];
     this.container = container;
     this.fragment = document.createDocumentFragment();
