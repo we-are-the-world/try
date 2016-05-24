@@ -312,7 +312,7 @@
 
         localStorage.setItem('paperMsg',JSON.stringify(paperMsg));
 
-        window.open('questList.html');
+        window.open('questList.html','_self');
 
 
 
