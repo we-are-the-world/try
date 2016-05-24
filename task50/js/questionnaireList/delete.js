@@ -51,15 +51,6 @@ var loadedRender = function($container, researchs) {
 					  				  '<a href=' + checkDataHref + 'class="checkData">查看数据</a>' ;
 			}
 
-		} else {
-			switch(researchs[i].state) {
-				case 1 : return  '<a href='+answerQuestionnaireHref+' class="checkQuest" \
-				style="pointer-events:none;color:#ddd;border-color:#ddd;">查看问卷</a>';	
-				case 2 : return  '<a href='+answerQuestionnaireHref+' class="checkQuest" \
-				>查看问卷</a>';
-				case 3 : return  '<a href=' + checkDataHref + '\
-			class="checkData">查看数据</a>'					
-			}	
 		}
 	}
 
