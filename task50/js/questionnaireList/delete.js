@@ -35,7 +35,7 @@ var loadedRender = function($container, researchs) {
 			switch(researchs[i].state) {
 				case 1 : return  '<td >未发布</td>' +
 					                '<td colspan="2">' +
-					                  '<a href=' + checkDataHref + ' class="checkData">编辑</a> ' +
+					                  '<a href=' + checkDataHref + ' class="editQuest">编辑</a> ' +
 									  '<a href="##" class="deleteQuest" >删除</a> ' +
 									  '<a href='+answerQuestionnaireHref+' class="checkQuest" \
 								 style="pointer-events:none;color:#ddd;border-color:#ddd;">查看问卷</a>';
@@ -46,7 +46,7 @@ var loadedRender = function($container, researchs) {
 									  '<a href=' + answerQuestionnaireHref + ' class="checkQuest" >查看问卷</a> ' ;
 				case 3 : return  '<td >已结束</td>' +
 									'<td colspan="2">' +
-									  '<a href=' + checkDataHref + ' class="checkData">编辑</a> ' +
+									  '<a href=' + checkDataHref + ' class="editQuest">编辑</a> ' +
 									  '<a href="##" class="deleteQuest" >删除</a> ' +
 					  				  '<a href=' + checkDataHref + ' class="checkData">查看数据</a>' ;
 			}
