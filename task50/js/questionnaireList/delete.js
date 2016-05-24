@@ -33,9 +33,22 @@ var loadedRender = function($container, researchs) {
 	var checkState = function(item) {
 		if (item == 'state') {
 			switch(researchs[i].state) {
-				case 1 : return  '<td >未发布</td>' ;
-				case 2 : return  '<td class="active">发布中</td>' ;
-				case 3 : return  '<td >已结束</td>' ;
+				case 1 : return  '<td >未发布</td>' +
+					                '<td colspan="2">' +
+					                  '<a href=' + checkDataHref + 'class="checkData">编辑</a> ' +
+									  '<a href="##" class="deleteQuest" >删除</a> ' +
+									  '<a href='+answerQuestionnaireHref+' class="checkQuest" \
+								style="pointer-events:none;color:#ddd;border-color:#ddd;">查看问卷</a>';
+				case 2 : return  '<td class="active">发布中</td>' +
+									'<td colspan="2">' +
+									  '<a href="##" class="deleteQuest" >删除</a> ' +
+									  '<a href=' + checkDataHref + 'class="checkData">查看数据</a> ' +
+									  '<a href=' + answerQuestionnaireHref + ' class="checkQuest" >查看问卷</a> ' ;
+				case 3 : return  '<td >已结束</td>' +
+									'<td colspan="2">' +
+									  '<a href=' + checkDataHref + 'class="checkData">编辑</a> ' +
+									  '<a href="##" class="deleteQuest" >删除</a> ' +
+					  				  '<a href=' + checkDataHref + 'class="checkData">查看数据</a>' ;
 			}
 
 		} else {
@@ -95,11 +108,11 @@ var loadedRender = function($container, researchs) {
 				'<td><input type="checkbox" id=' +researchs[i].researchId + ' /></td>' +
 				'<td><label for=' + researchs[i].researchId + '>' + researchs[i].researchTitle +'</label></td>' +
 				'<td>'+ researchs[i].deadline +'</td>' +
-					checkState('state')
-				+ '<td colspan="2">' +
+					checkState('state')  +
+/*				 '<td colspan="2">' +
 					'<a href=' + editQuestHref + ' class="editQuest">编辑</a> ' +
 					'<a href="##" class="deleteQuest" >删除</a> ' +
-					 checkState('check')  +
+					 checkState('check')  +*/
 				'</td>' +
 			'</tr>');
 	}
