@@ -62,6 +62,8 @@ require(['jquery','editCommon','underscore'],function ($,common) {
     $(document).on('click', '#add-question-op', function () {
         var ths = $(this);
         var len = ths.prevAll('p[class^=each]').length;
+        //count gt 3,not add
+        if(len>3){$(this).remove();return;}
 
         if(ths.prev().hasClass('each-option-single')) {// is single option
             $(this).before("<p class='each-option-single'><span class='xx-ct'>选项</span><i class='cha'>x</i></p>");
@@ -142,7 +144,7 @@ require(['jquery','editCommon','underscore'],function ($,common) {
         window.localStorage.activeResearchId=common.getResearchId()-1;
         window.location.reload();
     });
-
+    /*发布问卷*/
     $("#announce").click(function () {
         var is = confirm('你确定发布该问卷吗');
         if(!is) return;
