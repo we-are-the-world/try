@@ -73,6 +73,7 @@ header h2 {
 .questionnaireTab a:hover {
   background: #f07600;
   color: white;
+    cursor:pointer;
 }
 .questionnaireTab thead tr, .questionnaireTab tbody tr, .questionnaireTab tfoot tr {
   height: 50px;
