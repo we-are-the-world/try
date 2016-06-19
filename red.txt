@@ -1,0 +1,165 @@
+!/bin/bash
+
+function animate(){
+
+echo -en '\e[10;0f'
+for i in {20..1}
+do
+echo -en "\e[101m"
+# expand twice￥
+if [ $i -gt 15 ]
+then
+    echo -en "\e[101m"
+    eval printf \' %.0s\' {1..$((81-4*i))}
+    echo -en "\e[103m"
+    eval printf \' %.0s\' {1..$((8*i-120))}
+    echo -en "\e[101m"
+    eval printf \' %.0s\' {1..$((81-4*i))}
+else 
+    eval printf \' %.0s\' {1..42}
+fi
+
+echo -e "\e[0m"
+done
+
+
+echo -en "\e[${body}F"
+echo -en "\n\e[101m                 \e[101m▲▲▲▲"
+echo -en "\n\e[101m               ◥\e[103m  -  -  \e[101m◤"
+echo -en "\n\e[101m                 \e[103m  $  $  "
+echo -en "\n\e[101m              \e[103m      〇      "
+echo -en "\n\e[101m                 \e[103m        "
+echo -en "\n\e[101m                 \e[103m        "
+echo -en "\n\e[101m                \e[103m   \e[101m    \e[103m   "
+
+#body=$(($body+1))
+
+#echo -en "\e[0m"
+echo -en "\e[20F"
+}
+
+function input(){
+
+echo -en '\e[10;0f'
+for i in {20..1}
+do
+echo -en "\e[101m"
+# expand twice￥
+if [ $i -gt 15 ]
+then
+    echo -en "\e[101m"
+    eval printf \' %.0s\' {1..$((81-4*i))}
+    echo -en "\e[103m"
+    eval printf \' %.0s\' {1..$((8*i-120))}
+    echo -en "\e[101m"
+    eval printf \' %.0s\' {1..$((81-4*i))}
+    sleep 0.15
+else 
+    eval printf \' %.0s\' {1..42}
+    sleep 0.15
+fi
+
+echo -e "\e[0m\e[?25h"
+done
+
+echo -e "\e[12F\e[1;97;101m"
+read -p "               红包个数：" remainNum
+echo -en "\e[101m"
+read -p "               总金额（元）：" totalAmount
+
+echo -en "\e[?25l"
+#    animate
+}
+
+#remainNum=$1
+#totalAmount=$2
+
+function getRandomMoney(){
+    if [ $1 == 1 ]
+    then
+        paper[$remainNum]=$totalAmount
+        let "remainNum--"
+        echo -en $totalAmount"元"
+    else
+        local max=$(echo "$2/$1*2"|bc)
+        if [ $max == 0 ]
+        then
+            max=1
+        fi
+        local integer=$(echo "$RANDOM%$max"|bc)
+        local float=$(echo "($RANDOM%100+1)*0.01"|bc)
+        local money=$(echo "$integer+$float"|bc)
+        paper[$remainNum]=$money
+        remainNum=$(($remainNum-1))
+        totalAmount=$(echo "$totalAmount-$money"|bc)
+        echo -en $money"元"
+    fi
+}
+
+
+
+echo -en "\e[2J\e[?25l"
+
+
+function jump(){
+
+    for i in {1..8}
+    do
+        body=$(($body+1))
+        animate
+        sleep 0.1
+    done
+    for j in {1..8}
+    do
+        body=$(($body-1))
+        animate
+        sleep 0.1
+    done
+}
+
+input
+
+body=8
+while true
+do
+#animate
+#sleep 0.7
+#Keypress=b
+read -s -n 1 Keypress
+#if [ $Keypress == e ]
+if [[ $Keypress == e ]]
+then
+    echo -en "\e[0m\e[2J\e[?25h"
+    break
+elif [[ $Keypress == b  ]]
+  then
+  animate
+elif [[ "[$Keypress]" == "[]" ]]
+  then
+    jump
+    if [[ $remainNum == 0 ]]
+    then
+        echo -en "\e[1B\e[5C\a\e[31m     您来迟了，红包被抢光了哟"
+        echo -e "\e[4B\e[1;97;101m\n  红包发放情况:"
+        count=${#paper[@]}
+        while [ $count -gt 0 ]
+        do
+           if [[ ${#paper[@]} -gt 7 ]]
+           then 
+              echo -en "   "${paper[$count]}"元   "
+              if [[ $(($count%3)) == 0 ]]
+              then
+                  echo -en "\n"
+              fi
+           else
+              echo -e "                 "${paper[$count]}"元"
+           fi
+           let count--
+        done
+    else       
+        echo -en "\e[1B\e[5C\a\e[31m  此次您获取的红包:\e[1;91m￥"
+        getRandomMoney $remainNum $totalAmount
+    fi
+fi
+done
+
